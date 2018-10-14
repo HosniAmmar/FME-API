@@ -1,18 +1,11 @@
 # FME-API
-create table players {
-id int,
-ln varchar(50),
-firstName varchar(50),
-lastName varchar(50),
-cin varchar(12),
-adress varchar(100),
-tel varchar(30),
-mail varchar(50),
-length double,
-weight double,
-birthdate date,
-actualTeamId int,
-oldTeamId int,
-nationality varchar(20),
-category varchar(1)
-}
+implemented request list :
+Method GET
+http://localhost:8080/player => list of all players
+http://localhost:8080/player/{id} => player with id=id
+Method POST
+http://localhost:8080/player => add a player
+Method PUT
+http://localhost:8080/player/{id} => update player
+Method DELETE
+http://localhost:8080/player/{id} => delete player with id=id
