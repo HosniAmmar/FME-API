@@ -26,4 +26,5 @@ http://localhost:8080/player/{id} => update player
 Method DELETE
 
 http://localhost:8080/referee/{id} => delete referee with id=id
+
 http://localhost:8080/player/{id} => delete player with id=id
