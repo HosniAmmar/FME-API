@@ -11,7 +11,6 @@ public class Player {
     private String name;
     private int num;
     private int teamid;
-    private int test;
 
     public Player() {
     }
