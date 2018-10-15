@@ -11,30 +11,47 @@ import java.util.List;
 @RestController
 public class PlayerController {
 
+    static final String crossOriginUrl="http://localhost:4200";
     @Autowired
     private PlayerService playerService;
 
 
         @RequestMapping("/player")
+        @CrossOrigin(origins = crossOriginUrl)
         public List<Player> getAllPlayers(){
-           return playerService.getPlayers();
+
+            return playerService.getPlayers();
         }
 
         @RequestMapping("/player/{id}")
+        @CrossOrigin(origins = crossOriginUrl)
         public Player getPlayerById(@PathVariable int id){
+
             return playerService.getPlayer(id);
         }
 
         @RequestMapping(method = RequestMethod.POST,value="/player")
+        @CrossOrigin(origins = crossOriginUrl)
         public void addPlayer(@RequestBody Player player){
             playerService.addPlayer(player);
         }
+
         @RequestMapping(method = RequestMethod.PUT,value="/player/{id}")
-            public void editPlayer(@RequestBody Player player,@PathVariable int id){
+        @CrossOrigin(origins = crossOriginUrl)
+        public void editPlayer(@RequestBody Player player,@PathVariable int id){
                 playerService.editPlayer(player,id);
             }
-    @RequestMapping(method = RequestMethod.DELETE,value="/player/{id}")
-    public void deletePlayer(@PathVariable int id){
+
+        @RequestMapping(method = RequestMethod.DELETE,value="/player/{id}")
+        @CrossOrigin(origins = crossOriginUrl)
+        public void deletePlayer(@PathVariable int id) {
         playerService.deletePlayer(id);
+            }
+
+        @RequestMapping("/player/team/{id}")
+        @CrossOrigin(origins = crossOriginUrl)
+         public List<Player> getPlayerByTeamId(@PathVariable int id){
+
+        return playerService.getPlayersByTeamId(id);
     }
 }

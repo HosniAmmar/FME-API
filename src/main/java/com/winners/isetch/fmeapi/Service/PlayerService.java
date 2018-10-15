@@ -29,6 +29,10 @@ public class PlayerService {
         return playerRepository.findById(id).get();
 
     }
+    public List<Player> getPlayersByTeamId(int id){
+        return playerRepository.findByActualTeamId(id);
+
+    }
 
     public void addPlayer(Player player){
         playerRepository.save(player);

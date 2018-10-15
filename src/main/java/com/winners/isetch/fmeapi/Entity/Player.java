@@ -1,18 +1,25 @@
 package com.winners.isetch.fmeapi.Entity;
 
+import org.springframework.boot.autoconfigure.web.ResourceProperties;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 
 @Entity
 public class Player {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
 
     private String licenseNumber;
     private String firstName;
     private String lastName;
-    //cin number
+    private int squadNumber;
+    //cin or passport number
     private String natIdNum;
     private String adress;
     private String phone;
@@ -25,14 +32,15 @@ public class Player {
     private String nationality;
     private String category;
 
+    private String photoUrl;
     public Player() {
     }
 
-    public Player(int id, String licenseNumber, String firstName, String lastName, String natIdNum, String adress, String phone, String mailAdress, double height, double weight, String birthdate, int actualTeamId, int previousTeamId, String nationality, String category) {
-        this.id = id;
+    public Player(String licenseNumber, String firstName, String lastName, int squadNumber, String natIdNum, String adress, String phone, String mailAdress, double height, double weight, String birthdate, int actualTeamId, int previousTeamId, String nationality, String category, String photoUrl) {
         this.licenseNumber = licenseNumber;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.squadNumber = squadNumber;
         this.natIdNum = natIdNum;
         this.adress = adress;
         this.phone = phone;
@@ -44,6 +52,7 @@ public class Player {
         this.previousTeamId = previousTeamId;
         this.nationality = nationality;
         this.category = category;
+        this.photoUrl = photoUrl;
     }
 
     public int getId() {
@@ -76,6 +85,14 @@ public class Player {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public int getSquadNumber() {
+        return squadNumber;
+    }
+
+    public void setSquadNumber(int squadNumber) {
+        this.squadNumber = squadNumber;
     }
 
     public String getNatIdNum() {
@@ -164,5 +181,13 @@ public class Player {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
     }
 }
