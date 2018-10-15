@@ -19,7 +19,7 @@ http://localhost:8080/player => add a player
 
 Method PUT
 
-http://localhost:8080/referee/{id} => referee player
+http://localhost:8080/referee/{id} => update referee
 
 http://localhost:8080/player/{id} => update player
 
