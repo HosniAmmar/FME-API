@@ -1,19 +1,17 @@
 package com.winners.isetch.fmeapi.Entity;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Referee {
-	 @Id
+public class Responsable {
+	
+	@Id
 	 @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	    private int id;
 	 
-	 	private int badge;
 	 	private String firstName;
 	 	private String lastName;
 	 	private String natIdNum;
@@ -21,18 +19,16 @@ public class Referee {
 	 	private String birthdate;
 	 	private String phone;
 	 	private String mailAdress;
-	 	private double height;
-	 	private double weight;
+	 	private String formation;
 	 	private String nationality;
 	 	private String photoUrl;
-	 	 
-	 	public Referee() {}
+	 	
+	 	public Responsable() {}
 
-		public Referee(int id, int badge, String firstName, String lastName, String natIdNum, String adress,
-				String birthdate, String phone, String mailAdress, double height, double weight, String nationality,String photoUrl) {
+		public Responsable(int id, String firstName, String lastName, String natIdNum, String adress, String birthdate,
+				String phone, String mailAdress, String formation, String nationality, String photoUrl) {
 			super();
 			this.id = id;
-			this.badge = badge;
 			this.firstName = firstName;
 			this.lastName = lastName;
 			this.natIdNum = natIdNum;
@@ -40,10 +36,9 @@ public class Referee {
 			this.birthdate = birthdate;
 			this.phone = phone;
 			this.mailAdress = mailAdress;
-			this.height = height;
-			this.weight = weight;
+			this.formation = formation;
 			this.nationality = nationality;
-			this.photoUrl=photoUrl;
+			this.photoUrl = photoUrl;
 		}
 
 		public int getId() {
@@ -52,14 +47,6 @@ public class Referee {
 
 		public void setId(int id) {
 			this.id = id;
-		}
-
-		public int getBadge() {
-			return badge;
-		}
-
-		public void setBadge(int badge) {
-			this.badge = badge;
 		}
 
 		public String getFirstName() {
@@ -118,20 +105,12 @@ public class Referee {
 			this.mailAdress = mailAdress;
 		}
 
-		public double getHeight() {
-			return height;
+		public String getFormation() {
+			return formation;
 		}
 
-		public void setHeight(double height) {
-			this.height = height;
-		}
-
-		public double getWeight() {
-			return weight;
-		}
-
-		public void setWeight(double weight) {
-			this.weight = weight;
+		public void setFormation(String formation) {
+			this.formation = formation;
 		}
 
 		public String getNationality() {
@@ -152,14 +131,13 @@ public class Referee {
 
 		@Override
 		public String toString() {
-			return "Referee [id=" + id + ", badge=" + badge + ", firstName=" + firstName + ", lastName=" + lastName
-					+ ", natIdNum=" + natIdNum + ", adress=" + adress + ", birthdate=" + birthdate + ", phone=" + phone
-					+ ", mailAdress=" + mailAdress + ", height=" + height + ", weight=" + weight + ", nationality="
-					+ nationality + ", photoUrl=" + photoUrl + "]";
+			return "Responsable [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", natIdNum="
+					+ natIdNum + ", adress=" + adress + ", birthdate=" + birthdate + ", phone=" + phone
+					+ ", mailAdress=" + mailAdress + ", formation=" + formation + ", nationality=" + nationality
+					+ ", photoUrl=" + photoUrl + "]";
 		}
+	 	
+	 	
+	 	 
 
-		
 }
-
-
-
