@@ -29,18 +29,17 @@ public class ResponsableController {
     }
 
     @RequestMapping(method = RequestMethod.POST,value="/responsable")
-    @CrossOrigin(origins = crossOriginUrl)
     public void addReferee(@RequestBody Responsable responsable){
     	responsableService.addResponsable(responsable);
     }
+    
     @RequestMapping(method = RequestMethod.PUT,value="/responsable/{id}")
-    @CrossOrigin(origins = crossOriginUrl)
         public void editReferee(@RequestBody Responsable responsable,@PathVariable int id){
     	responsableService.editResponsable(responsable,id);
         }
 @RequestMapping(method = RequestMethod.DELETE,value="/responsable/{id}")
 @CrossOrigin(origins = crossOriginUrl)
-public void deleteReferee(@PathVariable int id){
+public void deleteResponsable(@PathVariable int id){
 	responsableService.deleteResponsable(id);
 }
 
