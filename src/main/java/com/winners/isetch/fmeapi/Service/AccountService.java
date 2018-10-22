@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.winners.isetch.fmeapi.Entity.Account;
 import com.winners.isetch.fmeapi.Entity.Player;
+import com.winners.isetch.fmeapi.Entity.Responsable;
 import com.winners.isetch.fmeapi.Repository.AccountRepository;
 
 @Service
@@ -16,15 +17,23 @@ public class AccountService {
 	@Autowired
 	private AccountRepository accountRepository;
 
-	public Account findByUsernameAndPassword(String userName,String password) {
-        List<Account> la=new ArrayList<>();        
-        accountRepository.findAll().forEach(la::add);
+	public Account findByUsernameAndPassword(String un,String pw) {
+        List<Account> la=getAccounts();       
+        Account a1 = null;
         for(Account a : la) {
-        	if(a.getUserName()==userName && a.getPassword()==password) {
+        	if(a.getUserName().equals(un) && a.getPassword().equals(pw) ) {
+                a1=a;
         		return a;
+
         	}
         }
         
-		return null;
+		return a1;
 	}
+	 public List<Account> getAccounts() {
+	        List<Account> lp=new ArrayList<>();
+	        accountRepository.findAll()
+	                .forEach(lp::add);
+	        return lp;
+	    }
 }
