@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.Service;
 
 import com.winners.isetch.fmeapi.Entity.Account;
-import com.winners.isetch.fmeapi.Entity.Player;
-import com.winners.isetch.fmeapi.Entity.Responsable;
 import com.winners.isetch.fmeapi.Repository.AccountRepository;
 
 @Service

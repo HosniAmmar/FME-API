@@ -29,12 +29,12 @@ public class ResponsableController {
     }
 
     @RequestMapping(method = RequestMethod.POST,value="/responsable")
-    public void addReferee(@RequestBody Responsable responsable){
+    public void addResponsable(@RequestBody Responsable responsable){
     	responsableService.addResponsable(responsable);
     }
     
     @RequestMapping(method = RequestMethod.PUT,value="/responsable/{id}")
-        public void editReferee(@RequestBody Responsable responsable,@PathVariable int id){
+        public void editResponsable(@RequestBody Responsable responsable,@PathVariable int id){
     	responsableService.editResponsable(responsable,id);
         }
 @RequestMapping(method = RequestMethod.DELETE,value="/responsable/{id}")
