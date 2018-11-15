@@ -2,6 +2,14 @@ package com.winners.isetch.fmeapi.Controller;
 
 import com.winners.isetch.fmeapi.Entity.Commissioner;
 import com.winners.isetch.fmeapi.Service.CommissionerService;
+import com.winners.isetch.fmrapi.exceptionCommissioner.AddCommissionerException;
+import com.winners.isetch.fmrapi.exceptionCommissioner.DeleteCommissionerException;
+import com.winners.isetch.fmrapi.exceptionCommissioner.EditCommissionerException;
+import com.winners.isetch.fmrapi.exceptionCommissioner.GetCommissionerByIdException;
+import com.winners.isetch.fmrapi.exceptionCommissioner.GetListCommissionerException;
+import com.winners.isetch.fmrapi.exceptionCommissioner.DeleteAllException;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,31 +17,84 @@ import java.util.List;
 
 @RestController
 public class CommissionerController {
-
+	static final String crossOriginUrl="http://localhost:4200";
     @Autowired
     private CommissionerService commissionerService;
 
 
-        @RequestMapping("/commissioner")
-        public List<Commissioner> getAllCommissioners(){
-           return commissionerService.getCommissioners();
-        }
+    @RequestMapping("/getListCommissioners")
+	@CrossOrigin(origins = crossOriginUrl)
+	public List<Commissioner> getAllCommissioners() {
+		List<Commissioner> lc=null;
+		try {
+			lc=commissionerService.getCommissioners();
+		} catch (GetListCommissionerException e) {
+			System.out.println(e.getMessage());
+		}
+		return lc;
+		
+	}
 
-        @RequestMapping("/commissioner/{id}")
-        public Commissioner getCommissionerById(@PathVariable int id){
-            return commissionerService.getCommissioner(id);
-        }
+	@RequestMapping(method = RequestMethod.POST, value = "/getCommissioner")
+	@CrossOrigin(origins = crossOriginUrl)
+	public Commissioner getCommissionerById(@RequestParam int id) {
+		Commissioner cm=null;	
+		try {
+				cm= commissionerService.getCommissioner(id);
+			} catch (GetCommissionerByIdException e) {
+				
+				System.out.println(e.getMessage());
+			}
+		return cm;
+		
+	}
 
-        @RequestMapping(method = RequestMethod.POST,value="/commissioner")
-        public void addCommissioner(@RequestBody Commissioner player){
-        	commissionerService.addCommissioner(player);
-        }
-        @RequestMapping(method = RequestMethod.PUT,value="/commissioner/{id}")
-            public void editCommissioner(@RequestBody Commissioner player,@PathVariable int id){
-        	commissionerService.editCommissioner(player,id);
-            }
-    @RequestMapping(method = RequestMethod.DELETE,value="/commissioner/{id}")
-    public void deleteCommissioner(@PathVariable int id){
-    	commissionerService.deleteCommissioner(id);
-    }
+	@RequestMapping(method = RequestMethod.POST, value = "/addCommissioner")
+	@CrossOrigin(origins = crossOriginUrl)
+	public void addCommissioner(@RequestBody Commissioner commissioner) {
+		
+		try {
+			commissionerService.addCommissioner(commissioner);
+		} catch (AddCommissionerException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	@RequestMapping(method = RequestMethod.PUT, value = "/editCommissioner")
+	@CrossOrigin(origins = crossOriginUrl)
+	public void editCommissioner(@RequestBody Commissioner commissioner, @RequestParam int id) {
+		try {
+			commissionerService.editCommissioner(commissioner, id);
+		} catch (EditCommissionerException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteCommissioner")
+	@CrossOrigin(origins = crossOriginUrl)
+	public void deleteCommissioner(@RequestParam int id) {
+		try {
+			commissionerService.deleteCommissioner(id);
+		} catch (DeleteCommissionerException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteAllCommissioners")
+	@CrossOrigin(origins = crossOriginUrl)
+	public void deleteAllCommissioners() {
+		try {
+			commissionerService.deleteAllCommissioners();
+		} catch (DeleteAllException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	public CommissionerService getCommissionerService() {
+		return commissionerService;
+	}
+
+	public void setCommissionerService(CommissionerService commissionerService) {
+		this.commissionerService = commissionerService;
+	}
+
 }
