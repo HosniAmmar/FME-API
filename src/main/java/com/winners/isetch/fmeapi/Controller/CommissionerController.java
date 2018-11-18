@@ -2,12 +2,7 @@ package com.winners.isetch.fmeapi.Controller;
 
 import com.winners.isetch.fmeapi.Entity.Commissioner;
 import com.winners.isetch.fmeapi.Service.CommissionerService;
-import com.winners.isetch.fmrapi.exceptionCommissioner.AddCommissionerException;
-import com.winners.isetch.fmrapi.exceptionCommissioner.DeleteCommissionerException;
-import com.winners.isetch.fmrapi.exceptionCommissioner.EditCommissionerException;
-import com.winners.isetch.fmrapi.exceptionCommissioner.GetCommissionerByIdException;
-import com.winners.isetch.fmrapi.exceptionCommissioner.GetListCommissionerException;
-import com.winners.isetch.fmrapi.exceptionCommissioner.DeleteAllException;
+import com.winners.isetch.fmeapi.exception.exceptionCommissioner.*;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +17,7 @@ public class CommissionerController {
     private CommissionerService commissionerService;
 
 
-    @RequestMapping("/getListCommissioners")
+    @RequestMapping("/Commissioners")
 	@CrossOrigin(origins = crossOriginUrl)
 	public List<Commissioner> getAllCommissioners() {
 		List<Commissioner> lc=null;
@@ -35,7 +30,7 @@ public class CommissionerController {
 		
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/getCommissioner")
+    @RequestMapping("/Commissioner/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
 	public Commissioner getCommissionerById(@RequestParam int id) {
 		Commissioner cm=null;	

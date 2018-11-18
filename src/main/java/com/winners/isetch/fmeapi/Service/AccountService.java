@@ -8,8 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.winners.isetch.fmeapi.Entity.Account;
 import com.winners.isetch.fmeapi.Repository.AccountRepository;
-import com.winners.isetch.fmrapi.exceptionAcount.GetAcountException;
-import com.winners.isetch.fmrapi.exceptionAcount.GetAllAcountsException;
+import com.winners.isetch.fmeapi.exception.exceptionAcount.*;
 
 @Service
 public class AccountService {

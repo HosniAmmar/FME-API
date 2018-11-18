@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.winners.isetch.fmeapi.Entity.Matchee;
 import com.winners.isetch.fmeapi.Service.MatchService;
-import com.winners.isetch.fmrapi.exceptionMatch.AddMatchException;
-import com.winners.isetch.fmrapi.exceptionMatch.DeleteAllException;
-import com.winners.isetch.fmrapi.exceptionMatch.DeleteMatchException;
-import com.winners.isetch.fmrapi.exceptionMatch.EditMatchException;
-import com.winners.isetch.fmrapi.exceptionMatch.GetListMatchException;
-import com.winners.isetch.fmrapi.exceptionMatch.GetMatchByIdException;
+import com.winners.isetch.fmeapi.exception.exceptionMatch.AddMatchException;
+import com.winners.isetch.fmeapi.exception.exceptionMatch.DeleteAllException;
+import com.winners.isetch.fmeapi.exception.exceptionMatch.DeleteMatchException;
+import com.winners.isetch.fmeapi.exception.exceptionMatch.EditMatchException;
+import com.winners.isetch.fmeapi.exception.exceptionMatch.GetListMatchException;
+import com.winners.isetch.fmeapi.exception.exceptionMatch.GetMatchByIdException;
 
 @RestController
 public class MatchController {

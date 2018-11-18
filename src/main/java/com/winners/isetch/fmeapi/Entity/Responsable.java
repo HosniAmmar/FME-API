@@ -9,194 +9,137 @@ import javax.persistence.Id;
 public class Responsable {
 	
 	@Id
-	private int id;
+	 @GeneratedValue(strategy = GenerationType.SEQUENCE)
+	    private int id;
 	 
-	 	private String nom;
-	 	private String prenom;
-	 	private String urlPhoto;
-	 	private String dateDeNaissance;
-	 	private String nationalite;
-	 	private String adresse;
-	 	private String region;
-	 	private int cin;
-	 	private int numPasseport;
-	 	private int numTel;
-	 	private String email;
+	 	private String firstName;
+	 	private String lastName;
+	 	private String natIdNum;
+	 	private String adress;
+	 	private String birthdate;
+	 	private String phone;
+	 	private String mailAdress;
 	 	private String fonction;
-	 	private String  commentaire;
-	 	
+	 	private String nationality;
+	 	private String photoUrl;
 	 	
 	 	public Responsable() {}
 
-
-		public Responsable(int id, String nom, String prenom, String urlPhoto, String dateDeNaissance,
-				String nationalite, String adresse, String region, int cin, int numPasseport, int numTel, String email,
-				String fonction, String commentaire) {
+		public Responsable(int id, String firstName, String lastName, String natIdNum, String adress, String birthdate,
+				String phone, String mailAdress, String fonction, String nationality, String photoUrl) {
 			super();
 			this.id = id;
-			this.nom = nom;
-			this.prenom = prenom;
-			this.urlPhoto = urlPhoto;
-			this.dateDeNaissance = dateDeNaissance;
-			this.nationalite = nationalite;
-			this.adresse = adresse;
-			this.region = region;
-			this.cin = cin;
-			this.numPasseport = numPasseport;
-			this.numTel = numTel;
-			this.email = email;
+			this.firstName = firstName;
+			this.lastName = lastName;
+			this.natIdNum = natIdNum;
+			this.adress = adress;
+			this.birthdate = birthdate;
+			this.phone = phone;
+			this.mailAdress = mailAdress;
 			this.fonction = fonction;
-			this.commentaire = commentaire;
+			this.nationality = nationality;
+			this.photoUrl = photoUrl;
 		}
-
 
 		public int getId() {
 			return id;
 		}
 
-
 		public void setId(int id) {
 			this.id = id;
 		}
 
-
-		public String getNom() {
-			return nom;
+		public String getFirstName() {
+			return firstName;
 		}
 
-
-		public void setNom(String nom) {
-			this.nom = nom;
+		public void setFirstName(String firstName) {
+			this.firstName = firstName;
 		}
 
-
-		public String getPrenom() {
-			return prenom;
+		public String getLastName() {
+			return lastName;
 		}
 
-
-		public void setPrenom(String prenom) {
-			this.prenom = prenom;
+		public void setLastName(String lastName) {
+			this.lastName = lastName;
 		}
 
-
-		public String getUrlPhoto() {
-			return urlPhoto;
+		public String getNatIdNum() {
+			return natIdNum;
 		}
 
-
-		public void setUrlPhoto(String urlPhoto) {
-			this.urlPhoto = urlPhoto;
+		public void setNatIdNum(String natIdNum) {
+			this.natIdNum = natIdNum;
 		}
 
-
-		public String getDateDeNaissance() {
-			return dateDeNaissance;
+		public String getAdress() {
+			return adress;
 		}
 
-
-		public void setDateDeNaissance(String dateDeNaissance) {
-			this.dateDeNaissance = dateDeNaissance;
+		public void setAdress(String adress) {
+			this.adress = adress;
 		}
 
-
-		public String getNationalite() {
-			return nationalite;
+		public String getBirthdate() {
+			return birthdate;
 		}
 
-
-		public void setNationalite(String nationalite) {
-			this.nationalite = nationalite;
+		public void setBirthdate(String birthdate) {
+			this.birthdate = birthdate;
 		}
 
-
-		public String getAdresse() {
-			return adresse;
+		public String getPhone() {
+			return phone;
 		}
 
-
-		public void setAdresse(String adresse) {
-			this.adresse = adresse;
+		public void setPhone(String phone) {
+			this.phone = phone;
 		}
 
-
-		public String getRegion() {
-			return region;
+		public String getMailAdress() {
+			return mailAdress;
 		}
 
-
-		public void setRegion(String region) {
-			this.region = region;
+		public void setMailAdress(String mailAdress) {
+			this.mailAdress = mailAdress;
 		}
 
-
-		public int getCin() {
-			return cin;
-		}
-
-
-		public void setCin(int cin) {
-			this.cin = cin;
-		}
-
-
-		public int getNumPasseport() {
-			return numPasseport;
-		}
-
-
-		public void setNumPasseport(int numPasseport) {
-			this.numPasseport = numPasseport;
-		}
-
-
-		public int getNumTel() {
-			return numTel;
-		}
-
-
-		public void setNumTel(int numTel) {
-			this.numTel = numTel;
-		}
-
-
-		public String getEmail() {
-			return email;
-		}
-
-
-		public void setEmail(String email) {
-			this.email = email;
-		}
-
+		
 
 		public String getFonction() {
 			return fonction;
 		}
 
-
 		public void setFonction(String fonction) {
 			this.fonction = fonction;
 		}
 
-
-		public String getCommentaire() {
-			return commentaire;
+		public String getNationality() {
+			return nationality;
 		}
 
-
-		public void setCommentaire(String commentaire) {
-			this.commentaire = commentaire;
+		public void setNationality(String nationality) {
+			this.nationality = nationality;
 		}
 
+		public String getPhotoUrl() {
+			return photoUrl;
+		}
+
+		public void setPhotoUrl(String photoUrl) {
+			this.photoUrl = photoUrl;
+		}
 
 		@Override
 		public String toString() {
-			return "Responsable [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", urlPhoto=" + urlPhoto
-					+ ", dateDeNaissance=" + dateDeNaissance + ", nationalite=" + nationalite + ", adresse=" + adresse
-					+ ", region=" + region + ", cin=" + cin + ", numPasseport=" + numPasseport + ", numTel=" + numTel
-					+ ", email=" + email + ", fonction=" + fonction + ", commentaire=" + commentaire + "]";
+			return "Responsable [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", natIdNum="
+					+ natIdNum + ", adress=" + adress + ", birthdate=" + birthdate + ", phone=" + phone
+					+ ", mailAdress=" + mailAdress + ", fonction=" + fonction + ", nationality=" + nationality
+					+ ", photoUrl=" + photoUrl + "]";
 		}
+	 	
+	 	
+	 	 
 
-		
 }
