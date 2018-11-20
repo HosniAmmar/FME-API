@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.*;
 
 import com.winners.isetch.fmeapi.Entity.Team;
 import com.winners.isetch.fmeapi.Service.TeamService;
-import com.winners.isetch.fmeapi.exception.exceptionTeam.AddTeamException;
-import com.winners.isetch.fmeapi.exception.exceptionTeam.DeleteAllException;
-import com.winners.isetch.fmeapi.exception.exceptionTeam.DeleteTeamException;
-import com.winners.isetch.fmeapi.exception.exceptionTeam.EditTeamException;
-import com.winners.isetch.fmeapi.exception.exceptionTeam.GetListTeamException;
-import com.winners.isetch.fmeapi.exception.exceptionTeam.GetTeamByIdException;
+import com.winners.isetch.fmeapi.exceptionTeam.AddTeamException;
+import com.winners.isetch.fmeapi.exceptionTeam.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptionTeam.DeleteTeamException;
+import com.winners.isetch.fmeapi.exceptionTeam.EditTeamException;
+import com.winners.isetch.fmeapi.exceptionTeam.GetListTeamException;
+import com.winners.isetch.fmeapi.exceptionTeam.GetTeamByIdException;
 
 
 @RestController
@@ -24,7 +24,7 @@ public class TeamController {
 	
 	
 	
-	@RequestMapping("/teams")
+    @RequestMapping("/team")
 	@CrossOrigin(origins = crossOriginUrl)
 	public List<Team> getAllTeams() {
 		List<Team> lt=null;
@@ -37,9 +37,9 @@ public class TeamController {
 		
 	}
 
-	 @RequestMapping("/team/{id}")
-	    @CrossOrigin(origins = crossOriginUrl)
-	public Team getTeamById(@PathVariable int id){
+    @RequestMapping("/team/{id}")
+	@CrossOrigin(origins = crossOriginUrl)
+	public Team getTeamById(@PathVariable int id) {
 		Team tm=null;	
 		try {
 				tm= teamService.getTeam(id);
@@ -51,7 +51,7 @@ public class TeamController {
 		
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/team")
+    @RequestMapping(method = RequestMethod.POST,value="/team")
 	@CrossOrigin(origins = crossOriginUrl)
 	public void addTeam(@RequestBody Team team) {
 		
@@ -62,9 +62,9 @@ public class TeamController {
 		}
 	}
 
-			@RequestMapping(method = RequestMethod.PUT,value="/team/{id}")
-		    @CrossOrigin(origins = crossOriginUrl)
-		public void editTeam(@RequestBody Team team,@PathVariable int id){
+    @RequestMapping(method = RequestMethod.PUT,value="/team/{id}")
+	@CrossOrigin(origins = crossOriginUrl)
+	public void editTeam(@RequestBody Team team, @PathVariable int id) {
 		try {
 			teamService.editTeam(team, id);
 		} catch (EditTeamException e) {
@@ -72,19 +72,15 @@ public class TeamController {
 		}
 	}
 
-
-
-	    @RequestMapping(method = RequestMethod.DELETE,value="/team/{id}")
-	    @CrossOrigin(origins = crossOriginUrl)
-	    public void deleteTeam(@PathVariable int id) {
+    @RequestMapping(method = RequestMethod.DELETE,value="/team/{id}")
+	@CrossOrigin(origins = crossOriginUrl)
+	public void deleteTeam(@PathVariable int id) {
 		try {
 			teamService.deleteTeam(id);
 		} catch (DeleteTeamException e) {
 			System.out.println(e.getMessage());
 		}
 	}
-	 
-	 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteAllTeams")
 	@CrossOrigin(origins = crossOriginUrl)
 	public void deleteAllTeams() {

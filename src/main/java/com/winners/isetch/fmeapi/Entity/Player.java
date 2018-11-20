@@ -1,6 +1,6 @@
 package com.winners.isetch.fmeapi.Entity;
 
-import org.springframework.boot.autoconfigure.web.ResourceProperties;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

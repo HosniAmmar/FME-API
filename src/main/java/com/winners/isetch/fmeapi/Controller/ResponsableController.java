@@ -7,13 +7,12 @@ import org.springframework.web.bind.annotation.*;
 
 import com.winners.isetch.fmeapi.Entity.Responsable;
 import com.winners.isetch.fmeapi.Service.ResponsableService;
-
-import com.winners.isetch.fmeapi.exception.exceptionResponsable.DeleteAllException;
-import com.winners.isetch.fmeapi.exception.exceptionResponsable.AddResponsableException;
-import com.winners.isetch.fmeapi.exception.exceptionResponsable.DeleteResponsableException;
-import com.winners.isetch.fmeapi.exception.exceptionResponsable.EditResponsableException;
-import com.winners.isetch.fmeapi.exception.exceptionResponsable.GetListResponsableException;
-import com.winners.isetch.fmeapi.exception.exceptionResponsable.GetResponsableByIdException;
+import com.winners.isetch.fmeapi.exceptionResponsable.AddResponsableException;
+import com.winners.isetch.fmeapi.exceptionResponsable.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptionResponsable.DeleteResponsableException;
+import com.winners.isetch.fmeapi.exceptionResponsable.EditResponsableException;
+import com.winners.isetch.fmeapi.exceptionResponsable.GetListResponsableException;
+import com.winners.isetch.fmeapi.exceptionResponsable.GetResponsableByIdException;
 
 @RestController
 public class ResponsableController {
@@ -23,7 +22,7 @@ public class ResponsableController {
 	
 	
 	
-	@RequestMapping("/getListResponsables")
+	@RequestMapping("/responsable")
 	@CrossOrigin(origins = crossOriginUrl)
 	public List<Responsable> getAllResponsables() {
 		List<Responsable> lrs=null;
@@ -36,9 +35,9 @@ public class ResponsableController {
 		
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/getResponsable")
+    @RequestMapping("/responsable/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public Responsable getResponsableById(@RequestParam int id) {
+	public Responsable getResponsableById(@PathVariable int id) {
 		Responsable rs=null;	
 		try {
 				rs= responsableService.getResponsable(id);
@@ -50,7 +49,7 @@ public class ResponsableController {
 		
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/addResponsable")
+    @RequestMapping(method = RequestMethod.POST,value="/responsable")
 	@CrossOrigin(origins = crossOriginUrl)
 	public void addResponsable(@RequestBody Responsable responsable) {
 		
@@ -61,9 +60,9 @@ public class ResponsableController {
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.PUT, value = "/editResponsable")
+    @RequestMapping(method = RequestMethod.PUT,value="/responsable/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void editResponsable(@RequestBody Responsable responsable, @RequestParam int id) {
+	public void editResponsable(@RequestBody Responsable responsable, @PathVariable int id) {
 		try {
 			responsableService.editResponsable(responsable, id);
 		} catch (EditResponsableException e) {
@@ -71,9 +70,9 @@ public class ResponsableController {
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteResponsable")
+    @RequestMapping(method = RequestMethod.DELETE,value="/responsable/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void deleteResponsable(@RequestParam int id) {
+	public void deleteResponsable(@PathVariable int id) {
 		try {
 			responsableService.deleteResponsable(id);
 		} catch (DeleteResponsableException e) {

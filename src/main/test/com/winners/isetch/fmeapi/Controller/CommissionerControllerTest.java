@@ -13,12 +13,12 @@ import org.junit.Test;
 
 import com.winners.isetch.fmeapi.Entity.Commissioner;
 import com.winners.isetch.fmeapi.Service.CommissionerService;
-import com.winners.isetch.fmrapi.exceptionCommissioner.AddCommissionerException;
-import com.winners.isetch.fmrapi.exceptionCommissioner.DeleteAllException;
-import com.winners.isetch.fmrapi.exceptionCommissioner.DeleteCommissionerException;
-import com.winners.isetch.fmrapi.exceptionCommissioner.EditCommissionerException;
-import com.winners.isetch.fmrapi.exceptionCommissioner.GetCommissionerByIdException;
-import com.winners.isetch.fmrapi.exceptionCommissioner.GetListCommissionerException;
+import com.winners.isetch.fmeapi.exceptionCommissioner.AddCommissionerException;
+import com.winners.isetch.fmeapi.exceptionCommissioner.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptionCommissioner.DeleteCommissionerException;
+import com.winners.isetch.fmeapi.exceptionCommissioner.EditCommissionerException;
+import com.winners.isetch.fmeapi.exceptionCommissioner.GetCommissionerByIdException;
+import com.winners.isetch.fmeapi.exceptionCommissioner.GetListCommissionerException;
 
 public class CommissionerControllerTest {
 
@@ -26,8 +26,9 @@ public class CommissionerControllerTest {
 	CommissionerService commissionerService=mock(CommissionerService.class);
 	List<Commissioner> listCom=new ArrayList<>();
 	List<Commissioner> listCom2=new ArrayList<>();
-	Commissioner c1=new Commissioner(111, 124, "nom", "urlPhoto", "dateDeNaissance", "nationalite", "adresse","region",1141, 142525, 54545454, "mail",70,170,"commentaire");
-	Commissioner c2=new Commissioner(222, 124, "nom", "urlPhoto", "dateDeNaissance", "nationalite", "adresse","region",1141, 142525, 54545454, "mail",70,170,"commentaire");
+	Commissioner c1=new Commissioner(1, 1, "firstName", "lastName", "natIdNum", "adress", "birthdate", "phone", "mailAdress", 1.70, 70, "nationality", "photoUrl");
+	Commissioner c2=new Commissioner(2, 2, "firstName", "lastName", "natIdNum", "adress", "birthdate", "phone", "mailAdress", 1.70, 70, "nationality", "photoUrl");
+
 	@Before
 	public void setUp(){
 		commissionerController.setCommissionerService(commissionerService);

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,12 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.winners.isetch.fmeapi.Entity.Referee;
 import com.winners.isetch.fmeapi.Service.RefereeService;
-import com.winners.isetch.fmeapi.exception.exceptionReferee.AddRefereeException;
-import com.winners.isetch.fmeapi.exception.exceptionReferee.DeleteAllException;
-import com.winners.isetch.fmeapi.exception.exceptionReferee.DeleteRefereeException;
-import com.winners.isetch.fmeapi.exception.exceptionReferee.EditRefereeException;
-import com.winners.isetch.fmeapi.exception.exceptionReferee.GetListRefereeException;
-import com.winners.isetch.fmeapi.exception.exceptionReferee.GetRefereeByIdException;
+import com.winners.isetch.fmeapi.exceptionReferee.AddRefereeException;
+import com.winners.isetch.fmeapi.exceptionReferee.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptionReferee.DeleteRefereeException;
+import com.winners.isetch.fmeapi.exceptionReferee.EditRefereeException;
+import com.winners.isetch.fmeapi.exceptionReferee.GetListRefereeException;
+import com.winners.isetch.fmeapi.exceptionReferee.GetRefereeByIdException;
 
 
 
@@ -28,7 +29,7 @@ public class RefereeController {
 	private RefereeService refereeService;
 
 
-	@RequestMapping("/getListReferees")
+    @RequestMapping("/referee")
 	@CrossOrigin(origins = crossOriginUrl)
 	public List<Referee> getAllReferees() {
 		List<Referee> lr=null;
@@ -41,9 +42,9 @@ public class RefereeController {
 		
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/getReferee")
+    @RequestMapping("/referee/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public Referee getRefereeById(@RequestParam int id) {
+	public Referee getRefereeById(@PathVariable int id) {
 		Referee r=null;	
 		try {
 				r= refereeService.getReferee(id);
@@ -55,7 +56,7 @@ public class RefereeController {
 		
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/addReferee")
+    @RequestMapping(method = RequestMethod.POST,value="/referee")
 	@CrossOrigin(origins = crossOriginUrl)
 	public void addReferee(@RequestBody Referee referee) {
 		
@@ -66,9 +67,9 @@ public class RefereeController {
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.PUT, value = "/editReferee")
+    @RequestMapping(method = RequestMethod.PUT,value="/referee/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void editReferee(@RequestBody Referee referee, @RequestParam int id) {
+	public void editReferee(@RequestBody Referee referee, @PathVariable int id) {
 		try {
 			refereeService.editReferee(referee, id);
 		} catch (EditRefereeException e) {
@@ -76,9 +77,9 @@ public class RefereeController {
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteReferee")
+    @RequestMapping(method = RequestMethod.DELETE,value="/referee/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void deleteReferee(@RequestParam int id) {
+	public void deleteReferee(@PathVariable int id) {
 		try {
 			refereeService.deleteReferee(id);
 		} catch (DeleteRefereeException e) {

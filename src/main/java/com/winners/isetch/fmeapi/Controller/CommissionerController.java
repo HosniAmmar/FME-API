@@ -2,8 +2,12 @@ package com.winners.isetch.fmeapi.Controller;
 
 import com.winners.isetch.fmeapi.Entity.Commissioner;
 import com.winners.isetch.fmeapi.Service.CommissionerService;
-import com.winners.isetch.fmeapi.exception.exceptionCommissioner.*;
-
+import com.winners.isetch.fmeapi.exceptionCommissioner.AddCommissionerException;
+import com.winners.isetch.fmeapi.exceptionCommissioner.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptionCommissioner.DeleteCommissionerException;
+import com.winners.isetch.fmeapi.exceptionCommissioner.EditCommissionerException;
+import com.winners.isetch.fmeapi.exceptionCommissioner.GetCommissionerByIdException;
+import com.winners.isetch.fmeapi.exceptionCommissioner.GetListCommissionerException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +21,7 @@ public class CommissionerController {
     private CommissionerService commissionerService;
 
 
-    @RequestMapping("/Commissioners")
+    @RequestMapping("/commissioner")
 	@CrossOrigin(origins = crossOriginUrl)
 	public List<Commissioner> getAllCommissioners() {
 		List<Commissioner> lc=null;
@@ -30,9 +34,9 @@ public class CommissionerController {
 		
 	}
 
-    @RequestMapping("/Commissioner/{id}")
+    @RequestMapping("/commissioner/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public Commissioner getCommissionerById(@RequestParam int id) {
+	public Commissioner getCommissionerById(@PathVariable int id) {
 		Commissioner cm=null;	
 		try {
 				cm= commissionerService.getCommissioner(id);
@@ -44,7 +48,7 @@ public class CommissionerController {
 		
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/addCommissioner")
+    @RequestMapping(method = RequestMethod.POST,value="/commissioner")
 	@CrossOrigin(origins = crossOriginUrl)
 	public void addCommissioner(@RequestBody Commissioner commissioner) {
 		
@@ -55,9 +59,9 @@ public class CommissionerController {
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.PUT, value = "/editCommissioner")
+    @RequestMapping(method = RequestMethod.PUT,value="/commissioner/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void editCommissioner(@RequestBody Commissioner commissioner, @RequestParam int id) {
+	public void editCommissioner(@RequestBody Commissioner commissioner, @PathVariable int id) {
 		try {
 			commissionerService.editCommissioner(commissioner, id);
 		} catch (EditCommissionerException e) {
@@ -65,9 +69,9 @@ public class CommissionerController {
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteCommissioner")
+    @RequestMapping(method = RequestMethod.DELETE,value="/commissioner/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void deleteCommissioner(@RequestParam int id) {
+	public void deleteCommissioner(@PathVariable int id) {
 		try {
 			commissionerService.deleteCommissioner(id);
 		} catch (DeleteCommissionerException e) {

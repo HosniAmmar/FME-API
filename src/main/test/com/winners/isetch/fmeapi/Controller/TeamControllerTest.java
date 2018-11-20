@@ -13,12 +13,12 @@ import org.junit.Test;
 
 import com.winners.isetch.fmeapi.Entity.Team;
 import com.winners.isetch.fmeapi.Service.TeamService;
-import com.winners.isetch.fmrapi.exceptionTeam.AddTeamException;
-import com.winners.isetch.fmrapi.exceptionTeam.DeleteAllException;
-import com.winners.isetch.fmrapi.exceptionTeam.DeleteTeamException;
-import com.winners.isetch.fmrapi.exceptionTeam.EditTeamException;
-import com.winners.isetch.fmrapi.exceptionTeam.GetListTeamException;
-import com.winners.isetch.fmrapi.exceptionTeam.GetTeamByIdException;
+import com.winners.isetch.fmeapi.exceptionTeam.AddTeamException;
+import com.winners.isetch.fmeapi.exceptionTeam.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptionTeam.DeleteTeamException;
+import com.winners.isetch.fmeapi.exceptionTeam.EditTeamException;
+import com.winners.isetch.fmeapi.exceptionTeam.GetListTeamException;
+import com.winners.isetch.fmeapi.exceptionTeam.GetTeamByIdException;
 
 
 
@@ -28,8 +28,9 @@ public class TeamControllerTest {
 	TeamService teamService=mock(TeamService.class);
 	List<Team> listCom=new ArrayList<>();
 	List<Team> listCom2=new ArrayList<>();
-	Team t1=new Team(111, "nom", "urlLogo", "adresse", "region", "dateDeCreation", "nomDePresident", "prenomDePresident", 11155144, "nomDeSecretaireGeneral", "prenomDeSecretaireGeneral", 5151325, "email", "numTel", "numFax", "terrainPrincipale", "urlPhoto", "division", "commentaire");
-	Team t2=new Team(111, "nom", "urlLogo", "adresse", "region", "dateDeCreation", "nomDePresident", "prenomDePresident", 11155144, "nomDeSecretaireGeneral", "prenomDeSecretaireGeneral", 5151325, "email", "numTel", "numFax", "terrainPrincipale", "urlPhoto", "division", "commentaire");
+	Team t1=new Team("name", "logoUrl", "adress", "region", "creationDate", "presidentirstName", "presidentLastName", "presidentPhone","secretaryFirstName", "secretaryLastName", "secretaryPhone", "mail", "phone", "fax", "mainStadium", "mainStadiumLocation", "teamPhoto", "division");
+	Team t2=new Team("name2", "logoUrl", "adress", "region", "creationDate", "presidentirstName", "presidentLastName", "presidentPhone","secretaryFirstName", "secretaryLastName", "secretaryPhone", "mail", "phone", "fax", "mainStadium", "mainStadiumLocation", "teamPhoto", "division");
+
 	@Before
 	public void setUp(){
 		teamController.setTeamService(teamService);

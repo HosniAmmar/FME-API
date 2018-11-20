@@ -2,12 +2,12 @@ package com.winners.isetch.fmeapi.Service;
 
 import com.winners.isetch.fmeapi.Entity.Team;
 import com.winners.isetch.fmeapi.Repository.TeamRepository;
-import com.winners.isetch.fmeapi.exception.exceptionTeam.AddTeamException;
-import com.winners.isetch.fmeapi.exception.exceptionTeam.DeleteAllException;
-import com.winners.isetch.fmeapi.exception.exceptionTeam.DeleteTeamException;
-import com.winners.isetch.fmeapi.exception.exceptionTeam.EditTeamException;
-import com.winners.isetch.fmeapi.exception.exceptionTeam.GetListTeamException;
-import com.winners.isetch.fmeapi.exception.exceptionTeam.GetTeamByIdException;
+import com.winners.isetch.fmeapi.exceptionTeam.AddTeamException;
+import com.winners.isetch.fmeapi.exceptionTeam.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptionTeam.DeleteTeamException;
+import com.winners.isetch.fmeapi.exceptionTeam.EditTeamException;
+import com.winners.isetch.fmeapi.exceptionTeam.GetListTeamException;
+import com.winners.isetch.fmeapi.exceptionTeam.GetTeamByIdException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
