@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.*;
 
 import com.winners.isetch.fmeapi.Entity.Team;
 import com.winners.isetch.fmeapi.Service.TeamService;
-import com.winners.isetch.fmrapi.exceptionTeam.AddTeamException;
-import com.winners.isetch.fmrapi.exceptionTeam.DeleteAllException;
-import com.winners.isetch.fmrapi.exceptionTeam.DeleteTeamException;
-import com.winners.isetch.fmrapi.exceptionTeam.EditTeamException;
-import com.winners.isetch.fmrapi.exceptionTeam.GetListTeamException;
-import com.winners.isetch.fmrapi.exceptionTeam.GetTeamByIdException;
+import com.winners.isetch.fmeapi.exceptionTeam.AddTeamException;
+import com.winners.isetch.fmeapi.exceptionTeam.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptionTeam.DeleteTeamException;
+import com.winners.isetch.fmeapi.exceptionTeam.EditTeamException;
+import com.winners.isetch.fmeapi.exceptionTeam.GetListTeamException;
+import com.winners.isetch.fmeapi.exceptionTeam.GetTeamByIdException;
 
 
 @RestController

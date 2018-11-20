@@ -13,12 +13,12 @@ import org.junit.Test;
 
 import com.winners.isetch.fmeapi.Entity.Referee;
 import com.winners.isetch.fmeapi.Service.RefereeService;
-import com.winners.isetch.fmrapi.exceptionReferee.AddRefereeException;
-import com.winners.isetch.fmrapi.exceptionReferee.DeleteAllException;
-import com.winners.isetch.fmrapi.exceptionReferee.DeleteRefereeException;
-import com.winners.isetch.fmrapi.exceptionReferee.EditRefereeException;
-import com.winners.isetch.fmrapi.exceptionReferee.GetListRefereeException;
-import com.winners.isetch.fmrapi.exceptionReferee.GetRefereeByIdException;
+import com.winners.isetch.fmeapi.exceptionReferee.AddRefereeException;
+import com.winners.isetch.fmeapi.exceptionReferee.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptionReferee.DeleteRefereeException;
+import com.winners.isetch.fmeapi.exceptionReferee.EditRefereeException;
+import com.winners.isetch.fmeapi.exceptionReferee.GetListRefereeException;
+import com.winners.isetch.fmeapi.exceptionReferee.GetRefereeByIdException;
 
 public class RefereeControllerTest {
 
@@ -26,8 +26,9 @@ public class RefereeControllerTest {
 	RefereeService refereeService=mock(RefereeService.class);
 	List<Referee> l=new ArrayList<>();
 	List<Referee> l2=new ArrayList<>();
-	Referee referee = new Referee(111, 123, "nom", "urlPhoto", "dateDeNaissance", "nationalite", "adresse", "region", 1, 1, 20202020, "mail", 70, 170, "commentaire");
-	Referee referee2 = new Referee(222, 345, "nom", "urlPhoto", "dateDeNaissance", "nationalite", "adresse", "region", 2, 2, 22222222, "mail", 70, 170, "commentaire");
+	Referee referee = new Referee(1, 1, "firstName", "lastName", "natIdNum", "adress", "birthdate", "phone", "mailAdress",1.70,70, "nationality", "photoUrl");
+	Referee referee2 = new Referee(2, 2, "firstName", "lastName", "natIdNum", "adress", "birthdate", "phone", "mailAdress",1.70,70, "nationality", "photoUrl");
+
 	@Before
 	public void setUp(){
 		refereeController.setRefereeService(refereeService);

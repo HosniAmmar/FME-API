@@ -3,220 +3,219 @@ package com.winners.isetch.fmeapi.Entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+
 @Entity
 public class Team {
-	@Id
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
-    private String nom;
-    private String urlLogo;
-    private String adresse;
+    private String name;
+    private String logoUrl;
+    private String address;
     private String region;
-    private String dateDeCreation;
-    private String nomDePresident;
-    private String prenomDePresident;
-    private int numtelDePresident;
-    private String nomDeSecretaireGeneral;
-    private String prenomDeSecretaireGeneral;
-    private int numTelDeSecretaireGeneral;
-    private String email;
-    private String numTel;
-    private String numFax;
-    private String terrainPrincipale;
-    private String urlPhoto;
+    private String creationDate;
+    private String presidentFirstName;
+    private String presidentLastName;
+    private String presidentPhone;
+    private String secretaryFirstName;
+    private String secretaryLastName;
+    private String secretaryPhone;
+    private String mail;
+    private String phone;
+    private String fax;
+    private String mainStadium;
+    private String mainStadiumLocation;
+    private String teamPhoto;
     private String division;
-    private String commentaire;
 
     public Team() {
     }
 
-	public Team(int id, String nom, String urlLogo, String adresse, String region, String dateDeCreation, String nomDePresident,
-			String prenomDePresident, int numtelDePresident, String nomDeSecretaireGeneral,
-			String prenomDeSecretaireGeneral, int numTelDeSecretaireGeneral, String email, String numTel, String numFax,
-			String terrainPrincipale, String urlPhoto, String division, String commentaire) {
-		super();
-		this.nom=nom;
-		this.id = id;
-		this.urlLogo = urlLogo;
-		this.adresse = adresse;
-		this.region = region;
-		this.dateDeCreation = dateDeCreation;
-		this.nomDePresident = nomDePresident;
-		this.prenomDePresident = prenomDePresident;
-		this.numtelDePresident = numtelDePresident;
-		this.nomDeSecretaireGeneral = nomDeSecretaireGeneral;
-		this.prenomDeSecretaireGeneral = prenomDeSecretaireGeneral;
-		this.numTelDeSecretaireGeneral = numTelDeSecretaireGeneral;
-		this.email = email;
-		this.numTel = numTel;
-		this.numFax = numFax;
-		this.terrainPrincipale = terrainPrincipale;
-		this.urlPhoto = urlPhoto;
-		this.division = division;
-		this.commentaire = commentaire;
-	}
+    public Team(String name, String logoUrl, String adress, String region, String creationDate, String presidentirstName, String presidentLastName, String presidentPhone, String secretaryFirstName, String secretaryLastName, String secretaryPhone, String mail, String phone, String fax, String mainStadium, String mainStadiumLocation, String teamPhoto, String division) {
+        this.name = name;
+        this.logoUrl = logoUrl;
+        this.address = adress;
+        this.region = region;
+        this.creationDate = creationDate;
+        this.presidentFirstName = presidentirstName;
+        this.presidentLastName = presidentLastName;
+        this.presidentPhone = presidentPhone;
+        this.secretaryFirstName = secretaryFirstName;
+        this.secretaryLastName = secretaryLastName;
+        this.secretaryPhone = secretaryPhone;
+        this.mail = mail;
+        this.phone = phone;
+        this.fax = fax;
+        this.mainStadium = mainStadium;
+        this.mainStadiumLocation = mainStadiumLocation;
+        this.teamPhoto = teamPhoto;
+        this.division = division;
+    }
 
-	public String getNom() {
-		return nom;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public String getUrlLogo() {
-		return urlLogo;
-	}
+    public String getLogoUrl() {
+        return logoUrl;
+    }
 
-	public void setUrlLogo(String urlLogo) {
-		this.urlLogo = urlLogo;
-	}
+    public void setLogoUrl(String logoUrl) {
+        this.logoUrl = logoUrl;
+    }
 
-	public String getAdresse() {
-		return adresse;
-	}
+    public String getAddress() {
+        return address;
+    }
 
-	public void setAdresse(String adresse) {
-		this.adresse = adresse;
-	}
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-	public String getRegion() {
-		return region;
-	}
+    public String getRegion() {
+        return region;
+    }
 
-	public void setRegion(String region) {
-		this.region = region;
-	}
+    public void setRegion(String region) {
+        this.region = region;
+    }
 
-	public String getDateDeCreation() {
-		return dateDeCreation;
-	}
+    public String getCreationDate() {
+        return creationDate;
+    }
 
-	public void setDateDeCreation(String dateDeCreation) {
-		this.dateDeCreation = dateDeCreation;
-	}
+    public void setCreationDate(String creationDate) {
+        this.creationDate = creationDate;
+    }
 
-	public String getNomDePresident() {
-		return nomDePresident;
-	}
+    public String getPresidentFirstName() {
+        return presidentFirstName;
+    }
 
-	public void setNomDePresident(String nomDePresident) {
-		this.nomDePresident = nomDePresident;
-	}
+    public void setPresidentFirstName(String presidentFirstName) {
+        this.presidentFirstName = presidentFirstName;
+    }
 
-	public String getPrenomDePresident() {
-		return prenomDePresident;
-	}
+    public String getPresidentLastName() {
+        return presidentLastName;
+    }
 
-	public void setPrenomDePresident(String prenomDePresident) {
-		this.prenomDePresident = prenomDePresident;
-	}
+    public void setPresidentLastName(String presidentLastName) {
+        this.presidentLastName = presidentLastName;
+    }
 
-	public int getNumtelDePresident() {
-		return numtelDePresident;
-	}
+    public String getPresidentPhone() {
+        return presidentPhone;
+    }
 
-	public void setNumtelDePresident(int numtelDePresident) {
-		this.numtelDePresident = numtelDePresident;
-	}
+    public void setPresidentPhone(String presidentPhone) {
+        this.presidentPhone = presidentPhone;
+    }
 
-	public String getNomDeSecretaireGeneral() {
-		return nomDeSecretaireGeneral;
-	}
+    public String getSecretaryFirstName() {
+        return secretaryFirstName;
+    }
 
-	public void setNomDeSecretaireGeneral(String nomDeSecretaireGeneral) {
-		this.nomDeSecretaireGeneral = nomDeSecretaireGeneral;
-	}
+    public void setSecretaryFirstName(String secretaryFirstName) {
+        this.secretaryFirstName = secretaryFirstName;
+    }
 
-	public String getPrenomDeSecretaireGeneral() {
-		return prenomDeSecretaireGeneral;
-	}
+    public String getSecretaryLastName() {
+        return secretaryLastName;
+    }
 
-	public void setPrenomDeSecretaireGeneral(String prenomDeSecretaireGeneral) {
-		this.prenomDeSecretaireGeneral = prenomDeSecretaireGeneral;
-	}
+    public void setSecretaryLastName(String secretaryLastName) {
+        this.secretaryLastName = secretaryLastName;
+    }
 
-	public int getNumTelDeSecretaireGeneral() {
-		return numTelDeSecretaireGeneral;
-	}
+    public String getSecretaryPhone() {
+        return secretaryPhone;
+    }
 
-	public void setNumTelDeSecretaireGeneral(int numTelDeSecretaireGeneral) {
-		this.numTelDeSecretaireGeneral = numTelDeSecretaireGeneral;
-	}
+    public void setSecretaryPhone(String secretaryPhone) {
+        this.secretaryPhone = secretaryPhone;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getMail() {
+        return mail;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
 
-	public String getNumTel() {
-		return numTel;
-	}
+    public String getPhone() {
+        return phone;
+    }
 
-	public void setNumTel(String numTel) {
-		this.numTel = numTel;
-	}
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
-	public String getNumFax() {
-		return numFax;
-	}
+    public String getFax() {
+        return fax;
+    }
 
-	public void setNumFax(String numFax) {
-		this.numFax = numFax;
-	}
+    public void setFax(String fax) {
+        this.fax = fax;
+    }
 
-	public String getTerrainPrincipale() {
-		return terrainPrincipale;
-	}
+    public String getMainStadium() {
+        return mainStadium;
+    }
 
-	public void setTerrainPrincipale(String terrainPrincipale) {
-		this.terrainPrincipale = terrainPrincipale;
-	}
+    public void setMainStadium(String mainStadium) {
+        this.mainStadium = mainStadium;
+    }
 
-	public String getUrlPhoto() {
-		return urlPhoto;
-	}
+    public String getMainStadiumLocation() {
+        return mainStadiumLocation;
+    }
 
-	public void setUrlPhoto(String urlPhoto) {
-		this.urlPhoto = urlPhoto;
-	}
+    public void setMainStadiumLocation(String mainStadiumLocation) {
+        this.mainStadiumLocation = mainStadiumLocation;
+    }
 
-	public String getDivision() {
-		return division;
-	}
+    public String getTeamPhoto() {
+        return teamPhoto;
+    }
 
-	public void setDivision(String division) {
-		this.division = division;
-	}
+    public void setTeamPhoto(String teamPhoto) {
+        this.teamPhoto = teamPhoto;
+    }
 
-	public String getCommentaire() {
-		return commentaire;
-	}
+    public String getDivision() {
+        return division;
+    }
 
-	public void setCommentaire(String commentaire) {
-		this.commentaire = commentaire;
-	}
+    public void setDivision(String division) {
+        this.division = division;
+    }
 
-	@Override
-	public String toString() {
-		return "Team [id=" + id +", nom =" + nom + ", urlLogo=" + urlLogo + ", adresse=" + adresse + ", region=" + region
-				+ ", dateDeCreation=" + dateDeCreation + ", nomDePresident=" + nomDePresident + ", prenomDePresident="
-				+ prenomDePresident + ", numtelDePresident=" + numtelDePresident + ", nomDeSecretaireGeneral="
-				+ nomDeSecretaireGeneral + ", prenomDeSecretaireGeneral=" + prenomDeSecretaireGeneral
-				+ ", numTelDeSecretaireGeneral=" + numTelDeSecretaireGeneral + ", email=" + email + ", numTel=" + numTel
-				+ ", numFax=" + numFax + ", terrainPrincipale=" + terrainPrincipale + ", urlPhoto=" + urlPhoto
-				+ ", division=" + division + ", commentaire=" + commentaire + "]";
-	}
-
-    
+    @Override
+    public String toString() {
+        return "Team{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+   
 }

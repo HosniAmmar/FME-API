@@ -13,12 +13,12 @@ import org.junit.Test;
 
 import com.winners.isetch.fmeapi.Entity.Matchee;
 import com.winners.isetch.fmeapi.Service.MatchService;
-import com.winners.isetch.fmrapi.exceptionMatch.AddMatchException;
-import com.winners.isetch.fmrapi.exceptionMatch.DeleteAllException;
-import com.winners.isetch.fmrapi.exceptionMatch.DeleteMatchException;
-import com.winners.isetch.fmrapi.exceptionMatch.EditMatchException;
-import com.winners.isetch.fmrapi.exceptionMatch.GetListMatchException;
-import com.winners.isetch.fmrapi.exceptionMatch.GetMatchByIdException;
+import com.winners.isetch.fmeapi.exceptionMatch.AddMatchException;
+import com.winners.isetch.fmeapi.exceptionMatch.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptionMatch.DeleteMatchException;
+import com.winners.isetch.fmeapi.exceptionMatch.EditMatchException;
+import com.winners.isetch.fmeapi.exceptionMatch.GetListMatchException;
+import com.winners.isetch.fmeapi.exceptionMatch.GetMatchByIdException;
 
 public class MatchControllerTest {
 
@@ -26,8 +26,8 @@ public class MatchControllerTest {
 	MatchService matchService=mock(MatchService.class);
 	List<Matchee> listM=new ArrayList<>();
 	List<Matchee> listM2=new ArrayList<>();
-	Matchee m1=new Matchee(111, 1, 2, "28/10/2018", "17:00", 122, 133, 144, 155,"Rades" );
-	Matchee m2=new Matchee(211, 3, 4, "28/10/2018", "19:00", 222,233, 244, 255,"Rades");
+	Matchee m1=new Matchee(1,1,2, "date", "heure", 1, 2, 3, 1);
+	Matchee m2=new Matchee(2,3,4, "date", "heure", 1, 2, 3, 2);
 	
 	@Before
 	public void setUp() {

@@ -2,12 +2,12 @@ package com.winners.isetch.fmeapi.Service;
 
 import com.winners.isetch.fmeapi.Entity.Player;
 import com.winners.isetch.fmeapi.Repository.PlayerRepository;
-import com.winners.isetch.fmrapi.exceptionPlayer.AddPlayerException;
-import com.winners.isetch.fmrapi.exceptionPlayer.DeleteAllException;
-import com.winners.isetch.fmrapi.exceptionPlayer.DeletePlayerException;
-import com.winners.isetch.fmrapi.exceptionPlayer.EditPlayerException;
-import com.winners.isetch.fmrapi.exceptionPlayer.GetListPlayerException;
-import com.winners.isetch.fmrapi.exceptionPlayer.GetPlayerByIdException;
+import com.winners.isetch.fmeapi.exceptionPlayer.AddPlayerException;
+import com.winners.isetch.fmeapi.exceptionPlayer.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptionPlayer.DeletePlayerException;
+import com.winners.isetch.fmeapi.exceptionPlayer.EditPlayerException;
+import com.winners.isetch.fmeapi.exceptionPlayer.GetListPlayerException;
+import com.winners.isetch.fmeapi.exceptionPlayer.GetPlayerByIdException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

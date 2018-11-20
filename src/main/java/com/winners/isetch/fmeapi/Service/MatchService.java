@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 
 import com.winners.isetch.fmeapi.Entity.Matchee;
 import com.winners.isetch.fmeapi.Repository.MatchRepository;
-import com.winners.isetch.fmrapi.exceptionMatch.AddMatchException;
-import com.winners.isetch.fmrapi.exceptionMatch.DeleteAllException;
-import com.winners.isetch.fmrapi.exceptionMatch.DeleteMatchException;
-import com.winners.isetch.fmrapi.exceptionMatch.EditMatchException;
-import com.winners.isetch.fmrapi.exceptionMatch.GetListMatchException;
-import com.winners.isetch.fmrapi.exceptionMatch.GetMatchByIdException;
+import com.winners.isetch.fmeapi.exceptionMatch.AddMatchException;
+import com.winners.isetch.fmeapi.exceptionMatch.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptionMatch.DeleteMatchException;
+import com.winners.isetch.fmeapi.exceptionMatch.EditMatchException;
+import com.winners.isetch.fmeapi.exceptionMatch.GetListMatchException;
+import com.winners.isetch.fmeapi.exceptionMatch.GetMatchByIdException;
 
 @Service
 public class MatchService {

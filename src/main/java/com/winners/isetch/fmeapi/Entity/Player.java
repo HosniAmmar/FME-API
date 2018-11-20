@@ -1,211 +1,193 @@
 package com.winners.isetch.fmeapi.Entity;
 
+
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 
 @Entity
 public class Player {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
 
-    private String numLicense;
-    private String categorie;
-    private String nom;
-    private String prenom;
-    private String urlPhoto;
-    private String dateDaNaissance;
-    private String nationalite;
-    private String adresse;
-    private int cin;
-    private int numPasseport;
-    private String numTel;
-    private String email;
-    private double taille;
-    private double poids;
-    private int idEquipe;
-    private int numMaillot;
-    private String commentaire;
-    
+    private String licenseNumber;
+    private String firstName;
+    private String lastName;
+    private int squadNumber;
+    //cin or passport number
+    private String natIdNum;
+    private String address;
+    private String phone;
+    private String mailAddress;
+    private double height;
+    private double weight;
+    private String birthdate;
+    private int actualTeamId;
+    private int previousTeamId;
+    private String nationality;
+    private String category;
+
+    private String photoUrl;
     public Player() {
     }
 
-	public Player(int id, String numLicense, String categorie, String nom, String prenom, String urlPhoto,
-			String dateDaNaissance, String nationalite, String adresse, int cin, int numPasseport, String numTel,
-			String email, double taille, double poids, int idEquipe, int numMaillot, String commentaire) {
-		super();
-		this.id = id;
-		this.numLicense = numLicense;
-		this.categorie = categorie;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.urlPhoto = urlPhoto;
-		this.dateDaNaissance = dateDaNaissance;
-		this.nationalite = nationalite;
-		this.adresse = adresse;
-		this.cin = cin;
-		this.numPasseport = numPasseport;
-		this.numTel = numTel;
-		this.email = email;
-		this.taille = taille;
-		this.poids = poids;
-		this.idEquipe = idEquipe;
-		this.numMaillot = numMaillot;
-		this.commentaire = commentaire;
-	}
+    public Player(String licenseNumber, String firstName, String lastName, int squadNumber, String natIdNum, String address, String phone, String mailAddress, double height, double weight, String birthdate, int actualTeamId, int previousTeamId, String nationality, String category, String photoUrl) {
+        this.licenseNumber = licenseNumber;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.squadNumber = squadNumber;
+        this.natIdNum = natIdNum;
+        this.address = address;
+        this.phone = phone;
+        this.mailAddress = mailAddress;
+        this.height = height;
+        this.weight = weight;
+        this.birthdate = birthdate;
+        this.actualTeamId = actualTeamId;
+        this.previousTeamId = previousTeamId;
+        this.nationality = nationality;
+        this.category = category;
+        this.photoUrl = photoUrl;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public String getNumLicense() {
-		return numLicense;
-	}
+    public String getLicenseNumber() {
+        return licenseNumber;
+    }
 
-	public void setNumLicense(String numLicense) {
-		this.numLicense = numLicense;
-	}
+    public void setLicenseNumber(String licenseNumber) {
+        this.licenseNumber = licenseNumber;
+    }
 
-	public String getCategorie() {
-		return categorie;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public void setCategorie(String categorie) {
-		this.categorie = categorie;
-	}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public String getNom() {
-		return nom;
-	}
+    public String getLastName() {
+        return lastName;
+    }
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	public String getPrenom() {
-		return prenom;
-	}
+    public int getSquadNumber() {
+        return squadNumber;
+    }
 
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
+    public void setSquadNumber(int squadNumber) {
+        this.squadNumber = squadNumber;
+    }
 
-	public String getUrlPhoto() {
-		return urlPhoto;
-	}
+    public String getNatIdNum() {
+        return natIdNum;
+    }
 
-	public void setUrlPhoto(String urlPhoto) {
-		this.urlPhoto = urlPhoto;
-	}
+    public void setNatIdNum(String natIdNum) {
+        this.natIdNum = natIdNum;
+    }
 
-	public String getDateDaNaissance() {
-		return dateDaNaissance;
-	}
+    public String getAddress() {
+        return address;
+    }
 
-	public void setDateDaNaissance(String dateDaNaissance) {
-		this.dateDaNaissance = dateDaNaissance;
-	}
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-	public String getNationalite() {
-		return nationalite;
-	}
+    public String getPhone() {
+        return phone;
+    }
 
-	public void setNationalite(String nationalite) {
-		this.nationalite = nationalite;
-	}
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
-	public String getAdresse() {
-		return adresse;
-	}
+    public String getMailAddress() {
+        return mailAddress;
+    }
 
-	public void setAdresse(String adresse) {
-		this.adresse = adresse;
-	}
+    public void setMailAddress(String mailAddress) {
+        this.mailAddress = mailAddress;
+    }
 
-	public int getCin() {
-		return cin;
-	}
+    public double getHeight() {
+        return height;
+    }
 
-	public void setCin(int cin) {
-		this.cin = cin;
-	}
+    public void setHeight(double height) {
+        this.height = height;
+    }
 
-	public int getNumPasseport() {
-		return numPasseport;
-	}
+    public double getWeight() {
+        return weight;
+    }
 
-	public void setNumPasseport(int numPasseport) {
-		this.numPasseport = numPasseport;
-	}
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
 
-	public String getNumTel() {
-		return numTel;
-	}
+    public String getBirthdate() {
+        return birthdate;
+    }
 
-	public void setNumTel(String numTel) {
-		this.numTel = numTel;
-	}
+    public void setBirthdate(String birthdate) {
+        this.birthdate = birthdate;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public int getActualTeamId() {
+        return actualTeamId;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setActualTeamId(int actualTeamId) {
+        this.actualTeamId = actualTeamId;
+    }
 
-	public double getTaille() {
-		return taille;
-	}
+    public int getPreviousTeamId() {
+        return previousTeamId;
+    }
 
-	public void setTaille(double taille) {
-		this.taille = taille;
-	}
+    public void setPreviousTeamId(int previousTeamId) {
+        this.previousTeamId = previousTeamId;
+    }
 
-	public double getPoids() {
-		return poids;
-	}
+    public String getNationality() {
+        return nationality;
+    }
 
-	public void setPoids(double poids) {
-		this.poids = poids;
-	}
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
 
-	public int getIdEquipe() {
-		return idEquipe;
-	}
+    public String getCategory() {
+        return category;
+    }
 
-	public void setIdEquipe(int idEquipe) {
-		this.idEquipe = idEquipe;
-	}
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
-	public int getNumMaillot() {
-		return numMaillot;
-	}
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
 
-	public void setNumMaillot(int numMaillot) {
-		this.numMaillot = numMaillot;
-	}
-
-	public String getCommentaire() {
-		return commentaire;
-	}
-
-	public void setCommentaire(String commentaire) {
-		this.commentaire = commentaire;
-	}
-
-	@Override
-	public String toString() {
-		return "Player [id=" + id + ", numLicense=" + numLicense + ", categorie=" + categorie + ", nom=" + nom
-				+ ", prenom=" + prenom + ", urlPhoto=" + urlPhoto + ", dateDaNaissance=" + dateDaNaissance
-				+ ", nationalite=" + nationalite + ", adresse=" + adresse + ", cin=" + cin + ", numPasseport="
-				+ numPasseport + ", numTel=" + numTel + ", email=" + email + ", taille=" + taille + ", poids=" + poids
-				+ ", NomEquipe=" + idEquipe + ", numMaillot=" + numMaillot + ", commentaire=" + commentaire + "]";
-	}
-
-    
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
 }

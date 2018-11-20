@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.winners.isetch.fmeapi.Entity.Account;
 import com.winners.isetch.fmeapi.Repository.AccountRepository;
-import com.winners.isetch.fmrapi.exceptionAcount.GetAcountException;
-import com.winners.isetch.fmrapi.exceptionAcount.GetAllAcountsException;
+import com.winners.isetch.fmeapi.exceptionAcount.GetAcountException;
+import com.winners.isetch.fmeapi.exceptionAcount.GetAllAcountsException;
 
 @Service
 public class AccountService {
@@ -36,12 +36,9 @@ public class AccountService {
 		lp = (List<Account>) accountRepository.findAll();
 		if (lp.isEmpty() || lp.equals(null))
 			throw new GetAllAcountsException("Erreur : aucun compte trouvé !");
-		else {
-//	        	lp=new ArrayList<>();
-//	        	accountRepository.findAll()
-//                .forEach(lp::add);
+		else 
 			return lp;
-		}
+		
 
 	}
 }
