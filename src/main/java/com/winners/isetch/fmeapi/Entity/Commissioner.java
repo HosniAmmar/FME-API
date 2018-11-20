@@ -20,6 +20,7 @@ public class Commissioner {
 	 	private double weight;
 	 	private String nationality;
 	 	private String photoUrl;
+	 	//new att
 	 	private String region;
 	 	private String city;
 	 	private String numpasseport;
