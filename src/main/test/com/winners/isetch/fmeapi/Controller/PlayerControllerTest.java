@@ -13,12 +13,12 @@ import org.junit.Test;
 
 import com.winners.isetch.fmeapi.Entity.Player;
 import com.winners.isetch.fmeapi.Service.PlayerService;
-import com.winners.isetch.fmrapi.exceptionPlayer.AddPlayerException;
-import com.winners.isetch.fmrapi.exceptionPlayer.DeleteAllException;
-import com.winners.isetch.fmrapi.exceptionPlayer.DeletePlayerException;
-import com.winners.isetch.fmrapi.exceptionPlayer.EditPlayerException;
-import com.winners.isetch.fmrapi.exceptionPlayer.GetListPlayerException;
-import com.winners.isetch.fmrapi.exceptionPlayer.GetPlayerByIdException;
+import com.winners.isetch.fmeapi.exceptionPlayer.AddPlayerException;
+import com.winners.isetch.fmeapi.exceptionPlayer.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptionPlayer.DeletePlayerException;
+import com.winners.isetch.fmeapi.exceptionPlayer.EditPlayerException;
+import com.winners.isetch.fmeapi.exceptionPlayer.GetListPlayerException;
+import com.winners.isetch.fmeapi.exceptionPlayer.GetPlayerByIdException;
 
 
 public class PlayerControllerTest {
@@ -27,8 +27,8 @@ public class PlayerControllerTest {
 	PlayerService playerService =mock(PlayerService.class);
 	List<Player> l=new ArrayList<>();
 	List<Player> l2=new ArrayList<>();
-	Player player=new Player(111,"111", "categorie", "nom", "prenom", "urlPhoto", "dateDaNaissance", "nationalite", "adresse",11111, 124556, "numTel", "email",170, 70, 100001, 10, "commentaire");
-	Player player2=new Player(222,"222", "categorie", "nom", "prenom", "urlPhoto", "dateDaNaissance", "nationalite", "adresse",222222, 25494, "numTel", "email",170, 70, 200002, 10, "commentaire");
+	Player player=new Player("1", "firstName", "lastName", 1, "natIdNum", "address", "phone", "mailAddress",1.70,70, "birthdate",1, 8, "nationality", "category", "photoUrl");
+	Player player2=new Player("2", "firstName", "lastName", 2, "natIdNum", "address", "phone", "mailAddress",1.70,70, "birthdate",1, 8, "nationality", "category", "photoUrl");
 	
 	@Before
 	public void setUp() {

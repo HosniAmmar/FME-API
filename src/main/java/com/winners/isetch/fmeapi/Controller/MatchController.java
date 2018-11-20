@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,12 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.winners.isetch.fmeapi.Entity.Matchee;
 import com.winners.isetch.fmeapi.Service.MatchService;
-import com.winners.isetch.fmeapi.exception.exceptionMatch.AddMatchException;
-import com.winners.isetch.fmeapi.exception.exceptionMatch.DeleteAllException;
-import com.winners.isetch.fmeapi.exception.exceptionMatch.DeleteMatchException;
-import com.winners.isetch.fmeapi.exception.exceptionMatch.EditMatchException;
-import com.winners.isetch.fmeapi.exception.exceptionMatch.GetListMatchException;
-import com.winners.isetch.fmeapi.exception.exceptionMatch.GetMatchByIdException;
+import com.winners.isetch.fmeapi.exceptionMatch.AddMatchException;
+import com.winners.isetch.fmeapi.exceptionMatch.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptionMatch.DeleteMatchException;
+import com.winners.isetch.fmeapi.exceptionMatch.EditMatchException;
+import com.winners.isetch.fmeapi.exceptionMatch.GetListMatchException;
+import com.winners.isetch.fmeapi.exceptionMatch.GetMatchByIdException;
 
 @RestController
 public class MatchController {
@@ -35,7 +36,7 @@ public class MatchController {
 		this.matchService = matchService;
 	}
 
-	@RequestMapping("/getListMatchs")
+	@RequestMapping("/matchs")
 	@CrossOrigin(origins = crossOriginUrl)
 	public List<Matchee> getAllmatchs() {
 		List<Matchee> lm=null;
@@ -48,9 +49,9 @@ public class MatchController {
 		
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/getMatch")
+    @RequestMapping("/match/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public Matchee getmatchById(@RequestParam int id) {
+	public Matchee getmatchById(@PathVariable int id) {
 		Matchee m=null;	
 		try {
 				m= matchService.getmatch(id);
@@ -62,7 +63,7 @@ public class MatchController {
 		
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/addMatch")
+    @RequestMapping(method = RequestMethod.POST,value="/match")
 	@CrossOrigin(origins = crossOriginUrl)
 	public void addmatch(@RequestBody Matchee match) {
 		
@@ -73,9 +74,9 @@ public class MatchController {
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.PUT, value = "/editMatch")
+    @RequestMapping(method = RequestMethod.PUT,value="/match/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void editmatch(@RequestBody Matchee match, @RequestParam int id) {
+	public void editmatch(@RequestBody Matchee match, @PathVariable int id) {
 		try {
 			matchService.editmatch(match, id);
 		} catch (EditMatchException e) {
@@ -83,9 +84,9 @@ public class MatchController {
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteMatch")
+    @RequestMapping(method = RequestMethod.DELETE,value="/match/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void deletematch(@RequestParam int id) {
+	public void deletematch(@PathVariable int id) {
 		try {
 			matchService.deletematch(id);
 		} catch (DeleteMatchException e) {

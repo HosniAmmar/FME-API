@@ -5,11 +5,15 @@ package com.winners.isetch.fmeapi.Entity;
 import javax.persistence.Id;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 @Entity
 public class Matchee {
 	@Id
+	 @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
+	
 	private int idEquipe1;
 	private int idEquipe2;
 	private String date;
@@ -18,12 +22,11 @@ public class Matchee {
 	private int idArbitre2;
 	private int idArbitre3;
 	private int idCommissaire;
-	private String lieu;
 	
 	public Matchee() {}
 	
 	public Matchee(int id, int idEquipe1, int idEquipe2, String date, String heure, int idArbitre1, int idArbitre2,
-			int idArbitre3, int idCommissaire, String lieu) {
+			int idArbitre3, int idCommissaire) {
 		super();
 		this.id = id;
 		this.idEquipe1 = idEquipe1;
@@ -34,11 +37,7 @@ public class Matchee {
 		this.idArbitre2 = idArbitre2;
 		this.idArbitre3 = idArbitre3;
 		this.idCommissaire = idCommissaire;
-		this.lieu = lieu;
 	}
-
-
-
 
 	public int getId() {
 		return id;
@@ -111,19 +110,14 @@ public class Matchee {
 	public void setidCommissaire(int idCommissaire) {
 		this.idCommissaire = idCommissaire;
 	}
-	public String getLieu() {
-		return lieu;
-	}
-
-	public void setLieu(String lieu) {
-		this.lieu = lieu;
-	}
 
 	@Override
 	public String toString() {
-		return "Matchee [id=" + id + ", idEquipe1=" + idEquipe1 + ", idEquipe2=" + idEquipe2 + ", date=" + date
+		return "Match [id=" + id + ", idEquipe1=" + idEquipe1 + ", idEquipe2=" + idEquipe2 + ", date=" + date
 				+ ", heure=" + heure + ", idArbitre1=" + idArbitre1 + ", idArbitre2=" + idArbitre2 + ", idArbitre3="
-				+ idArbitre3 + ", idCommissaire=" + idCommissaire + ", lieu=" + lieu + "]";
+				+ idArbitre3 + ", idCommissaire=" + idCommissaire + "]";
 	}
+	
+	
 		
 }

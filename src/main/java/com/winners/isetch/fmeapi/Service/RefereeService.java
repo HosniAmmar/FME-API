@@ -6,12 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.winners.isetch.fmeapi.Entity.Referee;
 import com.winners.isetch.fmeapi.Repository.RefereeRepository;
-import com.winners.isetch.fmeapi.exception.exceptionReferee.AddRefereeException;
-import com.winners.isetch.fmeapi.exception.exceptionReferee.DeleteAllException;
-import com.winners.isetch.fmeapi.exception.exceptionReferee.DeleteRefereeException;
-import com.winners.isetch.fmeapi.exception.exceptionReferee.EditRefereeException;
-import com.winners.isetch.fmeapi.exception.exceptionReferee.GetListRefereeException;
-import com.winners.isetch.fmeapi.exception.exceptionReferee.GetRefereeByIdException;
+import com.winners.isetch.fmeapi.exceptionReferee.AddRefereeException;
+import com.winners.isetch.fmeapi.exceptionReferee.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptionReferee.DeleteRefereeException;
+import com.winners.isetch.fmeapi.exceptionReferee.EditRefereeException;
+import com.winners.isetch.fmeapi.exceptionReferee.GetListRefereeException;
+import com.winners.isetch.fmeapi.exceptionReferee.GetRefereeByIdException;
 
 
 @Service

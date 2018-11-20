@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import com.winners.isetch.fmeapi.Entity.Account;
 import com.winners.isetch.fmeapi.Service.AccountService;
-import com.winners.isetch.fmeapi.exception.exceptionAcount.*;
+import com.winners.isetch.fmeapi.exceptionAcount.GetAcountException;
+import com.winners.isetch.fmeapi.exceptionAcount.GetAllAcountsException;
 
 @RestController
 public class AccountController {
@@ -23,15 +24,15 @@ public class AccountController {
 
 @RequestMapping(method = RequestMethod.POST, value = "/login")
 	@CrossOrigin(origins = crossOriginUrl)
-	public Account login(@RequestParam String name, @RequestParam String pw) {
-		Account user = null;
+	public Account login(@RequestBody Account user) {
+		Account user1 = null;
 		try {
-			user = accountService.findByUsernameAndPassword(name,pw);
+			user1 = accountService.findByUsernameAndPassword(user.getUserName(),user.getPassword());
 		} catch (GetAcountException | GetAllAcountsException e) {
 			System.out.println(e.getMessage());
 		}
 
-		return user;
+		return user1;
 
 	}
 

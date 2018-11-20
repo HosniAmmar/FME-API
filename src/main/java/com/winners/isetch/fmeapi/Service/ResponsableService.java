@@ -7,12 +7,12 @@ import org.springframework.stereotype.*;
 
 import com.winners.isetch.fmeapi.Entity.Responsable;
 import com.winners.isetch.fmeapi.Repository.ResponsableRepository;
-import com.winners.isetch.fmeapi.exception.exceptionResponsable.DeleteAllException;
-import com.winners.isetch.fmeapi.exception.exceptionResponsable.AddResponsableException;
-import com.winners.isetch.fmeapi.exception.exceptionResponsable.DeleteResponsableException;
-import com.winners.isetch.fmeapi.exception.exceptionResponsable.EditResponsableException;
-import com.winners.isetch.fmeapi.exception.exceptionResponsable.GetListResponsableException;
-import com.winners.isetch.fmeapi.exception.exceptionResponsable.GetResponsableByIdException;
+import com.winners.isetch.fmeapi.exceptionResponsable.AddResponsableException;
+import com.winners.isetch.fmeapi.exceptionResponsable.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptionResponsable.DeleteResponsableException;
+import com.winners.isetch.fmeapi.exceptionResponsable.EditResponsableException;
+import com.winners.isetch.fmeapi.exceptionResponsable.GetListResponsableException;
+import com.winners.isetch.fmeapi.exceptionResponsable.GetResponsableByIdException;
 
 
 @Service

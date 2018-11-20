@@ -13,12 +13,12 @@ import org.junit.Test;
 
 import com.winners.isetch.fmeapi.Entity.Responsable;
 import com.winners.isetch.fmeapi.Service.ResponsableService;
-import com.winners.isetch.fmrapi.exceptionResponsable.AddResponsableException;
-import com.winners.isetch.fmrapi.exceptionResponsable.DeleteAllException;
-import com.winners.isetch.fmrapi.exceptionResponsable.DeleteResponsableException;
-import com.winners.isetch.fmrapi.exceptionResponsable.EditResponsableException;
-import com.winners.isetch.fmrapi.exceptionResponsable.GetListResponsableException;
-import com.winners.isetch.fmrapi.exceptionResponsable.GetResponsableByIdException;
+import com.winners.isetch.fmeapi.exceptionResponsable.AddResponsableException;
+import com.winners.isetch.fmeapi.exceptionResponsable.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptionResponsable.DeleteResponsableException;
+import com.winners.isetch.fmeapi.exceptionResponsable.EditResponsableException;
+import com.winners.isetch.fmeapi.exceptionResponsable.GetListResponsableException;
+import com.winners.isetch.fmeapi.exceptionResponsable.GetResponsableByIdException;
 
 public class ResponsableControllerTest {
 
@@ -26,8 +26,9 @@ public class ResponsableControllerTest {
 	ResponsableService responsableService=mock(ResponsableService.class);
 	List<Responsable> listRsp=new ArrayList<>(); 
 	List<Responsable> listRsp2=new ArrayList<>(); 
-	Responsable	r1=new Responsable(111, "nom", "prenom", "urlPhoto", "dateDeNaissance", "nationalite", "adresse", "region", 111111, 1, 20202020, "email", "fonction", "commentaire");
-	Responsable	r2=new Responsable(222, "nom", "prenom", "urlPhoto", "dateDeNaissance", "nationalite", "adresse", "region", 222222, 2, 22222222, "email", "fonction", "commentaire");
+	Responsable	r1=new Responsable(1, "firstName", "lastName", "natIdNum", "adress", "birthdate", "phone", "mailAdress"," fonction", "nationality", "photoUrl");
+	Responsable	r2=new Responsable(2, "firstName", "lastName", "natIdNum", "adress", "birthdate", "phone", "mailAdress"," fonction", "nationality", "photoUrl");
+
 	@Before
 	public void setUp()  {
 		responsableController.setResponsableService(responsableService);

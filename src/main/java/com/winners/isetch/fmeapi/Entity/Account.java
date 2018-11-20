@@ -10,6 +10,7 @@ import javax.persistence.Id;
 public class Account {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
 	private String userName;
 	private String password;
@@ -64,5 +65,5 @@ public class Account {
 		return "Account [id=" + id + ", userName=" + userName + ", password=" + password + ", fullName=" + fullName
 				+ "]";
 	}
-	
+		
 }
