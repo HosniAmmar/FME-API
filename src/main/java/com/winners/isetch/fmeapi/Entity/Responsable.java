@@ -22,19 +22,23 @@ public class Responsable {
 	 	private String fonction;
 	 	private String nationality;
 	 	private String photoUrl;
+	    private int actualTeamId;
 
 	 	//new att
 	 	private String region;
 	 	private String city;
 	 	private String numpasseport;
 	 	private String comment;
+	 	
 
 	 	public Responsable() {}
 
 	 	
+	 	
+
 		public Responsable(int id, String firstName, String lastName, String natIdNum, String adress, String birthdate,
-				String phone, String mailAdress, String fonction, String nationality, String photoUrl, String region,
-				String city, String numpasseport, String comment) {
+				String phone, String mailAdress, String fonction, String nationality, String photoUrl, int actualTeamId,
+				String region, String city, String numpasseport, String comment) {
 			super();
 			this.id = id;
 			this.firstName = firstName;
@@ -47,11 +51,14 @@ public class Responsable {
 			this.fonction = fonction;
 			this.nationality = nationality;
 			this.photoUrl = photoUrl;
+			this.actualTeamId = actualTeamId;
 			this.region = region;
 			this.city = city;
 			this.numpasseport = numpasseport;
 			this.comment = comment;
 		}
+
+
 
 
 		public Responsable(int id, String firstName, String lastName, String natIdNum, String adress, String birthdate,
@@ -201,16 +208,33 @@ public class Responsable {
 		}
 
 
+
+
+		public int getActualTeamId() {
+			return actualTeamId;
+		}
+
+
+
+
+		public void setActualTeamId(int actualTeamId) {
+			this.actualTeamId = actualTeamId;
+		}
+
+
+
+
 		@Override
 		public String toString() {
 			return "Responsable [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", natIdNum="
 					+ natIdNum + ", adress=" + adress + ", birthdate=" + birthdate + ", phone=" + phone
 					+ ", mailAdress=" + mailAdress + ", fonction=" + fonction + ", nationality=" + nationality
-					+ ", photoUrl=" + photoUrl + ", region=" + region + ", city=" + city + ", numpasseport="
-					+ numpasseport + ", comment=" + comment + "]";
+					+ ", photoUrl=" + photoUrl + ", actualTeamId=" + actualTeamId + ", region=" + region + ", city="
+					+ city + ", numpasseport=" + numpasseport + ", comment=" + comment + "]";
 		}
-		
 
+
+		
 		
 	 	
 	 	 
