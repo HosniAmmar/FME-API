@@ -1,6 +1,8 @@
 package com.winners.isetch.fmeapi.Service;
 
+import com.winners.isetch.fmeapi.Entity.Player;
 import com.winners.isetch.fmeapi.Entity.Team;
+import com.winners.isetch.fmeapi.Repository.PlayerRepository;
 import com.winners.isetch.fmeapi.Repository.TeamRepository;
 import com.winners.isetch.fmeapi.exceptionTeam.AddTeamException;
 import com.winners.isetch.fmeapi.exceptionTeam.DeleteAllException;
@@ -12,6 +14,7 @@ import com.winners.isetch.fmeapi.exceptionTeam.GetTeamByIdException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -19,7 +22,8 @@ public class TeamService  {
 
     @Autowired
     private TeamRepository teamRepository;
-
+    @Autowired
+    private PlayerRepository playerRepository;
 
 
     public boolean isExiste(int id) {
@@ -66,6 +70,22 @@ public class TeamService  {
 			throw new DeleteTeamException("Erreur : ID incorrect");
 		else
 			teamRepository.deleteById(id);
+	}
+	
+	public List<Player>getTeamPlayers(int idEquipe){
+		List<Player>lp=null;
+		List<Player>lp2=new ArrayList<Player>();
+		lp=(List<Player>)playerRepository.findAll();
+		if(lp!=null && !lp.isEmpty()) {
+			for(Player p : lp) {
+				if(p.getActualTeamId()==idEquipe) {
+					lp2.add(p);
+				}
+			}	
+		}
+		
+		
+		return lp2;
 	}
 	
 	public void deleteAllTeams() throws DeleteAllException {

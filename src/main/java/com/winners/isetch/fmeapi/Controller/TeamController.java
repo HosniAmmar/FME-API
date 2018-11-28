@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.winners.isetch.fmeapi.Entity.Player;
 import com.winners.isetch.fmeapi.Entity.Team;
 import com.winners.isetch.fmeapi.Service.TeamService;
 import com.winners.isetch.fmeapi.exceptionTeam.AddTeamException;
@@ -37,6 +38,17 @@ public class TeamController {
 		
 	}
 
+    @RequestMapping("/teamP/{id}")
+  	@CrossOrigin(origins = crossOriginUrl)
+  	public List<Player> getTeamPlayers(int id) {
+  		List<Player> lt=null;
+  		
+  			lt=teamService.getTeamPlayers(id);
+  		
+  		return lt;
+  		
+  	}
+    
     @RequestMapping("/team/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
 	public Team getTeamById(@PathVariable int id) {
@@ -81,6 +93,8 @@ public class TeamController {
 			System.out.println(e.getMessage());
 		}
 	}
+    
+    
 	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteAllTeams")
 	@CrossOrigin(origins = crossOriginUrl)
 	public void deleteAllTeams() {

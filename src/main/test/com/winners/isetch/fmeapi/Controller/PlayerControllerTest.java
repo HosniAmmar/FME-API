@@ -27,8 +27,8 @@ public class PlayerControllerTest {
 	PlayerService playerService =mock(PlayerService.class);
 	List<Player> l=new ArrayList<>();
 	List<Player> l2=new ArrayList<>();
-	Player player=new Player("1", "firstName", "lastName", 1, "natIdNum", "address", "phone", "mailAddress",1.70,70, "birthdate",1, 8, "nationality", "category", "photoUrl");
-	Player player2=new Player("2", "firstName", "lastName", 2, "natIdNum", "address", "phone", "mailAddress",1.70,70, "birthdate",1, 8, "nationality", "category", "photoUrl");
+	Player player=new Player("firstName", "lastName", "phone", "natIdNum", "address", "mailAddress", 1.70, 70, "birthdate", "nationality", "photoUrl", "region", "city", "numpasseport", "comment", 1, "licenseNumber", 1, 1, 1, "category");
+	Player player2=new Player("firstName", "lastName", "phone", "natIdNum", "address", "mailAddress", 1.70, 70, "birthdate", "nationality", "photoUrl", "region", "city", "numpasseport", "comment", 2, "licenseNumber", 2, 2, 2, "category");
 	
 	@Before
 	public void setUp() {
@@ -48,9 +48,9 @@ public class PlayerControllerTest {
 
 	@Test
 	public void testGetPlayerById() throws GetPlayerByIdException {
-		when(playerService.getPlayer(111)).thenReturn(player);
-		assertEquals(player,playerController.getPlayerById(111));
-		verify(playerService).getPlayer(111);
+		when(playerService.getPlayer(player.getId())).thenReturn(player);
+		assertEquals(player,playerController.getPlayerById(player.getId()));
+		verify(playerService).getPlayer(player.getId());
 	}
 
 	@Test
@@ -62,14 +62,14 @@ public class PlayerControllerTest {
 
 	@Test
 	public void testEditPlayer() throws EditPlayerException {
-		playerController.editPlayer(player, 111);
-		verify(playerService).editPlayer(player, 111);
+		playerController.editPlayer(player, player.getId());
+		verify(playerService).editPlayer(player, player.getId());
 	}
 
 	@Test
 	public void testDeletePlayer() throws DeletePlayerException {
-		playerController.deletePlayer(111);
-		verify(playerService).deletePlayer(111);
+		playerController.deletePlayer(player.getId());
+		verify(playerService).deletePlayer(player.getId());
 	}
 
 	@Test
