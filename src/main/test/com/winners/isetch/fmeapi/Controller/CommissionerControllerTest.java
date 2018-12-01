@@ -26,8 +26,9 @@ public class CommissionerControllerTest {
 	CommissionerService commissionerService=mock(CommissionerService.class);
 	List<Commissioner> listCom=new ArrayList<>();
 	List<Commissioner> listCom2=new ArrayList<>();
-	Commissioner c1=new Commissioner(1, 1, "firstName", "lastName", "natIdNum", "adress", "birthdate", "phone", "mailAdress", 1.70, 70, "nationality", "photoUrl");
-	Commissioner c2=new Commissioner(2, 2, "firstName", "lastName", "natIdNum", "adress", "birthdate", "phone", "mailAdress", 1.70, 70, "nationality", "photoUrl");
+	Commissioner c1=new Commissioner("firstName", "lastName", "phone", "natIdNum", "address", "mailAddress", 1.70, 70, "birthdate", "nationality", "photoUrl", "region", "city", "numpasseport", "comment", 1, 1);
+	Commissioner c2=new Commissioner("firstName", "lastName", "phone", "natIdNum", "address", "mailAddress", 1.70, 70, "birthdate", "nationality", "photoUrl", "region", "city", "numpasseport", "comment", 2, 2);
+
 
 	@Before
 	public void setUp(){

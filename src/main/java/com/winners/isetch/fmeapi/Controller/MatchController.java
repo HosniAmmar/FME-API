@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 
 import com.winners.isetch.fmeapi.Entity.Matchee;
 import com.winners.isetch.fmeapi.Service.MatchService;
@@ -28,6 +28,8 @@ public class MatchController {
 	@Autowired
 	private MatchService matchService;
 
+	
+	
 	public MatchService getMatchService() {
 		return matchService;
 	}
@@ -93,7 +95,11 @@ public class MatchController {
 			System.out.println(e.getMessage());
 		}
 	}
-	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteAllMatchs")
+	
+       
+ 
+    
+    @RequestMapping(method = RequestMethod.DELETE, value = "/deleteAllMatchs")
 	@CrossOrigin(origins = crossOriginUrl)
 	public void deleteAllmatchs() {
 		try {

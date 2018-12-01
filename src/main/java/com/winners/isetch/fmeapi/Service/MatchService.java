@@ -6,8 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import com.winners.isetch.fmeapi.Entity.Matchee;
 import com.winners.isetch.fmeapi.Repository.MatchRepository;
+
 import com.winners.isetch.fmeapi.exceptionMatch.AddMatchException;
 import com.winners.isetch.fmeapi.exceptionMatch.DeleteAllException;
 import com.winners.isetch.fmeapi.exceptionMatch.DeleteMatchException;
@@ -20,6 +22,8 @@ public class MatchService {
 
 	@Autowired
 	private MatchRepository matchRepository;
+	
+
 
 	public boolean isExiste(int id) {
 		return matchRepository.existsById(id);
@@ -68,11 +72,17 @@ public class MatchService {
 		matchRepository.deleteById(id);
 	}
 	
+	
+	
+	
+	
 	public void deleteAllmatchs() throws DeleteAllException {
 		if(matchRepository.count()==0)
 			throw new DeleteAllException("Erreur : il n'y a pas des matches pour effacer !" );
 		else
 		matchRepository.deleteAll();
 	}
+	
+	
 
 }

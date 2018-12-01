@@ -26,8 +26,8 @@ public class RefereeControllerTest {
 	RefereeService refereeService=mock(RefereeService.class);
 	List<Referee> l=new ArrayList<>();
 	List<Referee> l2=new ArrayList<>();
-	Referee referee = new Referee(1, 1, "firstName", "lastName", "natIdNum", "adress", "birthdate", "phone", "mailAdress",1.70,70, "nationality", "photoUrl");
-	Referee referee2 = new Referee(2, 2, "firstName", "lastName", "natIdNum", "adress", "birthdate", "phone", "mailAdress",1.70,70, "nationality", "photoUrl");
+	Referee referee = new Referee("firstName", "lastName", "phone", "natIdNum", "address", "mailAddress", 1.70, 70, "birthdate", "nationality", "photoUrl", "region", "city", "numpasseport", "comment", 1, 1);
+	Referee referee2 = new Referee("firstName", "lastName", "phone", "natIdNum", "address", "mailAddress", 1.70, 70, "birthdate", "nationality", "photoUrl", "region", "city", "numpasseport", "comment", 2, 2);
 
 	@Before
 	public void setUp(){
@@ -47,9 +47,9 @@ public class RefereeControllerTest {
 
 	@Test
 	public void testGetRefereeById() throws GetRefereeByIdException {
-		when(refereeService.getReferee(111)).thenReturn(referee);
-		assertEquals(referee, refereeController.getRefereeById(111));
-		verify(refereeService).getReferee(111);
+		when(refereeService.getReferee(referee.getId())).thenReturn(referee);
+		assertEquals(referee, refereeController.getRefereeById(referee.getId()));
+		verify(refereeService).getReferee(referee.getId());
 	}
 
 	@Test
@@ -61,14 +61,14 @@ public class RefereeControllerTest {
 
 	@Test
 	public void testEditReferee() throws EditRefereeException {
-		refereeController.editReferee(referee,333);
-		verify(refereeService).editReferee(referee, 333);
+		refereeController.editReferee(referee,referee.getId());
+		verify(refereeService).editReferee(referee, referee.getId());
 	}
 
 	@Test
 	public void testDeleteReferee() throws DeleteRefereeException {
-		refereeController.deleteReferee(111);
-		verify(refereeService).deleteReferee(111);
+		refereeController.deleteReferee(referee.getId());
+		verify(refereeService).deleteReferee(referee.getId());
 	}
 	
 	@Test

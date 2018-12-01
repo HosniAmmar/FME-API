@@ -26,8 +26,8 @@ public class ResponsableControllerTest {
 	ResponsableService responsableService=mock(ResponsableService.class);
 	List<Responsable> listRsp=new ArrayList<>(); 
 	List<Responsable> listRsp2=new ArrayList<>(); 
-	Responsable	r1=new Responsable(1, "firstName", "lastName", "natIdNum", "adress", "birthdate", "phone", "mailAdress"," fonction", "nationality", "photoUrl");
-	Responsable	r2=new Responsable(2, "firstName", "lastName", "natIdNum", "adress", "birthdate", "phone", "mailAdress"," fonction", "nationality", "photoUrl");
+	Responsable	r1=new Responsable("firstName", "lastName", "phone", "natIdNum", "address", "mailAddress", 1.70, 70, "birthdate", "nationality", "photoUrl", "region", "city", "numpasseport", "comment", 1, "fonction", 1);
+	Responsable	r2=new Responsable("firstName", "lastName", "phone", "natIdNum", "address", "mailAddress", 1.70, 70, "birthdate", "nationality", "photoUrl", "region", "city", "numpasseport", "comment", 2,"fonction",2 );
 
 	@Before
 	public void setUp()  {

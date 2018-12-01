@@ -26,8 +26,8 @@ public class MatchControllerTest {
 	MatchService matchService=mock(MatchService.class);
 	List<Matchee> listM=new ArrayList<>();
 	List<Matchee> listM2=new ArrayList<>();
-	Matchee m1=new Matchee(1,1,2, "date", "heure", 1, 2, 3, 1);
-	Matchee m2=new Matchee(2,3,4, "date", "heure", 1, 2, 3, 2);
+	Matchee m1=new Matchee(1,1,2, "date", "heure","place", 1, 2, 3, 1);
+	Matchee m2=new Matchee(2,3,4, "date", "heure", "place",1, 2, 3, 2);
 	
 	@Before
 	public void setUp() {
