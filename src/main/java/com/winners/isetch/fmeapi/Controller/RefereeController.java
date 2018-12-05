@@ -57,41 +57,49 @@ public class RefereeController {
 
     @RequestMapping(method = RequestMethod.POST,value="/referee")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void addReferee(@RequestBody Referee referee) {
+	public boolean addReferee(@RequestBody Referee referee) {
 		
 		try {
 			refereeService.addReferee(referee);
+			return true;
 		} catch (AddRefereeException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 
     @RequestMapping(method = RequestMethod.PUT,value="/referee/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void editReferee(@RequestBody Referee referee, @PathVariable int id) {
+	public boolean editReferee(@RequestBody Referee referee, @PathVariable int id) {
 		try {
 			refereeService.editReferee(referee, id);
+			return true;
 		} catch (EditRefereeException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 
     @RequestMapping(method = RequestMethod.DELETE,value="/referee/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void deleteReferee(@PathVariable int id) {
+	public boolean deleteReferee(@PathVariable int id) {
 		try {
 			refereeService.deleteReferee(id);
+			return true;
 		} catch (DeleteRefereeException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteAllReferees")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void deleteAllReferees() {
+	public boolean deleteAllReferees() {
 		try {
 			refereeService.deleteAllReferees();
+			return true;
 		} catch (DeleteAllException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 

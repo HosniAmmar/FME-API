@@ -43,28 +43,31 @@ public class ResponsableService {
 
 		}
 
-		public void addResponsable(Responsable responsable) throws AddResponsableException {
+		public boolean addResponsable(Responsable responsable) throws AddResponsableException {
 			if(isExiste(responsable.getId()))
 				throw new AddResponsableException("Erreur : ce Responsable est existe dans la base !");
 			else
 				responsableRepository.save(responsable);
+			return true;
 		}
 
-		public void editResponsable(Responsable responsable, int id) throws EditResponsableException {
+		public boolean editResponsable(Responsable responsable, int id) throws EditResponsableException {
 			if(!isExiste(id))
 				throw new EditResponsableException("Erreur : ID incorrect !");
 			else {
 				responsableRepository.deleteById(id);
 				responsableRepository.save(responsable);
+				return true;
 			}
 			
 		}
 
-		public void deleteResponsable(int id) throws DeleteResponsableException {
+		public boolean deleteResponsable(int id) throws DeleteResponsableException {
 			if(!isExiste(id))
 				throw new DeleteResponsableException("Erreur : ID incorrect");
 			else
 			responsableRepository.deleteById(id);
+			return true;
 		}
 		
 		public void deleteAllResponsables() throws DeleteAllException {

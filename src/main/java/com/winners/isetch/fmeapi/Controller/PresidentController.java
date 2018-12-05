@@ -51,32 +51,37 @@ public class PresidentController {
 
     @RequestMapping(method = RequestMethod.POST,value="/president")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void addPresident(@RequestBody President president) throws AddPresidentException {
-    	presidentService.addPresident(president);
-//		try {
-//			presidentService.addPresident(president);
-//		} catch (AddPresidentException e) {
-//			System.out.println(e.getMessage());
-//		}
+	public boolean addPresident(@RequestBody President president) throws AddPresidentException {
+		try {
+			presidentService.addPresident(president);
+			return true;
+		} catch (AddPresidentException e) {
+			System.out.println(e.getMessage());
+			return false;
+		}
 	}
 
     @RequestMapping(method = RequestMethod.PUT,value="/president/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void editPresident(@RequestBody President president, @PathVariable int id) {
+	public boolean editPresident(@RequestBody President president, @PathVariable int id) {
 		try {
 			presidentService.editPresident(president, id);
+			return true;
 		} catch (EditPresidentException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 
     @RequestMapping(method = RequestMethod.DELETE,value="/president/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void deletePresident(@PathVariable int id) {
+	public boolean deletePresident(@PathVariable int id) {
 		try {
 			presidentService.deletePresident(id);
+			return true;
 		} catch (DeletePresidentException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteAllPresidents")

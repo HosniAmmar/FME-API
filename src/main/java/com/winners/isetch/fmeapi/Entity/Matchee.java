@@ -3,8 +3,7 @@ package com.winners.isetch.fmeapi.Entity;
 
 import javax.persistence.Id;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,11 +24,6 @@ public class Matchee {
 	private int idArbitre2;
 	private int idArbitre3;
 	private int idCommissaire;
-//	private List<Player>localTeam=new ArrayList<Player>();
-//	private List<Player>visitingTeam=new ArrayList<Player>();
-//	private List<GoalScored>goals=new ArrayList<GoalScored>();
-//	private List<Injury>injurys=new ArrayList<Injury>();
-//	private List<Warning>warnings=new ArrayList<Warning>();
 	
 	
 	public Matchee() {

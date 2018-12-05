@@ -51,41 +51,49 @@ public class PlayerController {
 
     @RequestMapping(method = RequestMethod.POST,value="/player")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void addPlayer(@RequestBody Player player) {
+	public boolean addPlayer(@RequestBody Player player) {
 		
 		try {
 			playerService.addPlayer(player);
+			return true;
 		} catch (AddPlayerException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 
     @RequestMapping(method = RequestMethod.PUT,value="/player/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void editPlayer(@RequestBody Player player, @PathVariable int id) {
+	public boolean editPlayer(@RequestBody Player player, @PathVariable int id) {
 		try {
 			playerService.editPlayer(player, id);
+			return true;
 		} catch (EditPlayerException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 
     @RequestMapping(method = RequestMethod.DELETE,value="/player/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void deletePlayer(@PathVariable int id) {
+	public boolean deletePlayer(@PathVariable int id) {
 		try {
 			playerService.deletePlayer(id);
+			return true;
 		} catch (DeletePlayerException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteAllPlayers")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void deleteAllPlayers() {
+	public boolean deleteAllPlayers() {
 		try {
 			playerService.deleteAllPlayers();
+			return true;
 		} catch (DeleteAllException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 

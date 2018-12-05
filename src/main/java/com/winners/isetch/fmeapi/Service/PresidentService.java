@@ -50,28 +50,31 @@ public class PresidentService {
 
 	}
 
-	public void addPresident(President president) throws AddPresidentException {
+	public boolean addPresident(President president) throws AddPresidentException {
 		if (isExiste(president.getId()))
 			throw new AddPresidentException("Erreur : ce President est existe dans la base !");
 		else
 			presidentRepository.save(president);
+		return true;
 	}
 
-	public void editPresident(President president, int id) throws EditPresidentException {
+	public boolean editPresident(President president, int id) throws EditPresidentException {
 		if (!isExiste(id))
 			throw new EditPresidentException("Erreur : ID incorrect !");
 		else {
 			presidentRepository.deleteById(id);
 			presidentRepository.save(president);
+			return true;
 		}
 
 	}
 
-	public void deletePresident(int id) throws DeletePresidentException {
+	public boolean deletePresident(int id) throws DeletePresidentException {
 		if (!isExiste(id))
 			throw new DeletePresidentException("Erreur : ID incorrect");
 		else
 			presidentRepository.deleteById(id);
+		return true;
 	}
 
 	public void deleteAllPresidents() throws DeleteAllException {

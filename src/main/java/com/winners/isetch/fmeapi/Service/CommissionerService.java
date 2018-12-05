@@ -22,7 +22,15 @@ public class CommissionerService {
 
 
 
-    public boolean isExiste(int id) {
+    public CommissionerRepository getCommissionerRepository() {
+		return commissionerRepository;
+	}
+
+	public void setCommissionerRepository(CommissionerRepository commissionerRepository) {
+		this.commissionerRepository = commissionerRepository;
+	}
+
+	public boolean isExiste(int id) {
   		return commissionerRepository.existsById(id);
   	}
 
@@ -45,28 +53,31 @@ public class CommissionerService {
 
   	}
 
-  	public void addCommissioner(Commissioner commissioner) throws AddCommissionerException {
+  	public boolean addCommissioner(Commissioner commissioner) throws AddCommissionerException {
   		if(isExiste(commissioner.getId()))
   			throw new AddCommissionerException("Erreur : ce Commissioner est existe dans la base !");
   		else
   			commissionerRepository.save(commissioner);
+  		return true;
   	}
 
-  	public void editCommissioner(Commissioner commissioner, int id) throws EditCommissionerException {
+  	public boolean editCommissioner(Commissioner commissioner, int id) throws EditCommissionerException {
   		if(!isExiste(id))
   			throw new EditCommissionerException("Erreur : ID incorrect !");
   		else {
   			commissionerRepository.deleteById(id);
   			commissionerRepository.save(commissioner);
+  			return true;
   		}
   		
   	}
 
-  	public void deleteCommissioner(int id) throws DeleteCommissionerException {
+  	public boolean deleteCommissioner(int id) throws DeleteCommissionerException {
   		if(!isExiste(id))
   			throw new DeleteCommissionerException("Erreur : ID incorrect");
   		else
   			commissionerRepository.deleteById(id);
+  		return true;
   	}
   	
   	public void deleteAllCommissioners() throws DeleteAllException {

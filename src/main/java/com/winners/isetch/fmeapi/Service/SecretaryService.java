@@ -45,28 +45,31 @@ public class SecretaryService {
 
 	}
 
-	public void addSecretary(Secretary secretary) throws AddSecretaryException {
+	public boolean addSecretary(Secretary secretary) throws AddSecretaryException {
 		if(isExiste(secretary.getId()))
 			throw new AddSecretaryException("Erreur : cette Secretary est existe dans la base !");
 		else
 			secretaryRepository.save(secretary);
+		return true;
 	}
 
-	public void editSecretary(Secretary secretary, int id) throws EditSecretaryException {
+	public boolean editSecretary(Secretary secretary, int id) throws EditSecretaryException {
 		if(!isExiste(id))
 			throw new EditSecretaryException("Erreur : ID incorrect !");
 		else {
 			secretaryRepository.deleteById(id);
 			secretaryRepository.save(secretary);
+			return true;
 		}
 		
 	}
 
-	public void deleteSecretary(int id) throws DeleteSecretaryException {
+	public boolean deleteSecretary(int id) throws DeleteSecretaryException {
 		if(!isExiste(id))
 			throw new DeleteSecretaryException("Erreur : ID incorrect");
 		else
 			secretaryRepository.deleteById(id);
+		return true;
 	}
 	
 	public void deleteAllSecretarys() throws DeleteAllException {

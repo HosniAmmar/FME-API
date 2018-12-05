@@ -2,7 +2,6 @@ package com.winners.isetch.fmeapi.Controller;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -14,7 +13,6 @@ import org.junit.Test;
 import com.winners.isetch.fmeapi.Entity.Referee;
 import com.winners.isetch.fmeapi.Service.RefereeService;
 import com.winners.isetch.fmeapi.exceptionReferee.AddRefereeException;
-import com.winners.isetch.fmeapi.exceptionReferee.DeleteAllException;
 import com.winners.isetch.fmeapi.exceptionReferee.DeleteRefereeException;
 import com.winners.isetch.fmeapi.exceptionReferee.EditRefereeException;
 import com.winners.isetch.fmeapi.exceptionReferee.GetListRefereeException;
@@ -42,39 +40,32 @@ public class RefereeControllerTest {
 	public void testGetAllReferees() throws GetListRefereeException {
 		when(refereeService.getReferees()).thenReturn(l);
 		assertEquals(l2, refereeController.getAllReferees());
-		verify(refereeService).getReferees();
 	}
 
 	@Test
 	public void testGetRefereeById() throws GetRefereeByIdException {
 		when(refereeService.getReferee(referee.getId())).thenReturn(referee);
 		assertEquals(referee, refereeController.getRefereeById(referee.getId()));
-		verify(refereeService).getReferee(referee.getId());
 	}
 
 	@Test
 	public void testAddReferee() throws AddRefereeException {
-		refereeController.addReferee(referee);
-		verify(refereeService).addReferee(referee);
+		when(refereeService.addReferee(referee)).thenReturn(true);
+		assertEquals(true, refereeController.addReferee(referee));
 		
 	}
 
 	@Test
 	public void testEditReferee() throws EditRefereeException {
-		refereeController.editReferee(referee,referee.getId());
-		verify(refereeService).editReferee(referee, referee.getId());
+		when(refereeService.editReferee(referee,referee.getId())).thenReturn(true);
+		assertEquals(true, refereeController.editReferee(referee,referee.getId()));
 	}
 
 	@Test
 	public void testDeleteReferee() throws DeleteRefereeException {
-		refereeController.deleteReferee(referee.getId());
-		verify(refereeService).deleteReferee(referee.getId());
+		when(refereeService.deleteReferee(referee.getId())).thenReturn(true);
+		assertEquals(true, refereeController.deleteReferee(referee.getId()));
 	}
 	
-	@Test
-	public void testDeleteAllReferees() throws DeleteAllException {
-		refereeController.deleteAllReferees();
-		verify(refereeService).deleteAllReferees();
-	}
 
 }

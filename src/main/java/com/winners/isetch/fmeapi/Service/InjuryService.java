@@ -10,6 +10,10 @@ import org.springframework.stereotype.Service;
 import com.winners.isetch.fmeapi.Entity.Injury;
 
 import com.winners.isetch.fmeapi.Repository.InjuryRepository;
+import com.winners.isetch.fmeapi.exceptionInjury.AddInjuryException;
+import com.winners.isetch.fmeapi.exceptionInjury.GetInjuryByMatchException;
+import com.winners.isetch.fmeapi.exceptionInjury.GetInjuryByPlayerException;
+import com.winners.isetch.fmeapi.exceptionInjury.GetInjuryByPlayerInMatchException;
 
 
 @Service
@@ -23,7 +27,7 @@ public class InjuryService {
 		return injuryRepository.existsById(id);
 	}
 
-	public List<Injury> getInjurysInMatch(int idMatch) {
+	public List<Injury> getInjurysInMatch(int idMatch) throws GetInjuryByMatchException {
 		List<Injury> li = null;
 		List<Injury> li2 = new ArrayList<Injury>();
 		li = (List<Injury>) injuryRepository.findAll();
@@ -35,12 +39,13 @@ public class InjuryService {
 				}
 
 			}
-		}
+		}else
+			throw new GetInjuryByMatchException("Erreur : List vide ! ");
 
 		return li2;
 	}
 
-	public List<Injury> getInjurysByPlayer(int idPlayer) {
+	public List<Injury> getInjurysByPlayer(int idPlayer) throws GetInjuryByPlayerException {
 		List<Injury> li = null;
 		List<Injury> li2 = new ArrayList<Injury>();
 		li = (List<Injury>) injuryRepository.findAll();
@@ -52,11 +57,12 @@ public class InjuryService {
 				}
 
 			}
-		}
+		}else
+			throw new GetInjuryByPlayerException("Erreur : List vide ! ");
 
 		return li2;
 	}
-	public List<Injury> getInjurysByPlayerInMatch(int idPlayer,int idMatch) {
+	public List<Injury> getInjurysByPlayerInMatch(int idPlayer,int idMatch) throws GetInjuryByPlayerInMatchException {
 		List<Injury> li = null;
 		List<Injury> li2 = new ArrayList<Injury>();
 		li = (List<Injury>) injuryRepository.findAll();
@@ -68,7 +74,8 @@ public class InjuryService {
 				}
 
 			}
-		}
+		}else
+			throw new GetInjuryByPlayerInMatchException("Erreur : List vide ! ");
 
 		return li2;
 	}
@@ -81,9 +88,9 @@ public class InjuryService {
 
 	}
 
-	public boolean addInjury(Injury injury) {
+	public boolean addInjury(Injury injury) throws AddInjuryException {
 		if (isExiste(injury.getId()))
-			return false;
+				throw new AddInjuryException("Erreur : existe dans la base ! ");
 		else {
 			injuryRepository.save(injury);
 			return true;

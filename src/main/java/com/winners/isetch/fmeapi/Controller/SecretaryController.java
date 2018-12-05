@@ -43,32 +43,38 @@ public class SecretaryController {
 
     @RequestMapping(method = RequestMethod.POST,value="/secretary")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void addSecretary(@RequestBody Secretary secretary) {
+	public boolean addSecretary(@RequestBody Secretary secretary) {
 		
 		try {
 			secretaryService.addSecretary(secretary);
+			return true;
 		} catch (AddSecretaryException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 
     @RequestMapping(method = RequestMethod.PUT,value="/secretary/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void editSecretary(@RequestBody Secretary secretary, @PathVariable int id) {
+	public boolean editSecretary(@RequestBody Secretary secretary, @PathVariable int id) {
 		try {
 			secretaryService.editSecretary(secretary, id);
+			return true;
 		} catch (EditSecretaryException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 
     @RequestMapping(method = RequestMethod.DELETE,value="/secretary/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void deleteSecretary(@PathVariable int id) {
+	public boolean deleteSecretary(@PathVariable int id) {
 		try {
 			secretaryService.deleteSecretary(id);
+			return true;
 		} catch (DeleteSecretaryException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteAllSecretarys")

@@ -43,28 +43,31 @@ public class RefereeService {
 
 	}
 
-	public void addReferee(Referee referee) throws AddRefereeException {
+	public boolean addReferee(Referee referee) throws AddRefereeException {
 		if(isExiste(referee.getId()))
 			throw new AddRefereeException("Erreur : ce Referee est existe dans la base !");
 		else
 			refereeRepository.save(referee);
+		return true;
 	}
 
-	public void editReferee(Referee referee, int id) throws EditRefereeException {
+	public boolean editReferee(Referee referee, int id) throws EditRefereeException {
 		if(!isExiste(id))
 			throw new EditRefereeException("Erreur : ID incorrect !");
 		else {
 			refereeRepository.deleteById(id);
 			refereeRepository.save(referee);
+			return true;
 		}
 		
 	}
 
-	public void deleteReferee(int id) throws DeleteRefereeException {
+	public boolean deleteReferee(int id) throws DeleteRefereeException {
 		if(!isExiste(id))
 			throw new DeleteRefereeException("Erreur : ID incorrect");
 		else
 		refereeRepository.deleteById(id);
+		return true;
 	}
 	
 	public void deleteAllReferees() throws DeleteAllException {

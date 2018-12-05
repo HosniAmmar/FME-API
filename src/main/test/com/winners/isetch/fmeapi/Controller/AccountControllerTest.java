@@ -2,7 +2,6 @@ package com.winners.isetch.fmeapi.Controller;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import org.junit.Before;
@@ -30,14 +29,12 @@ public class AccountControllerTest {
 	public void testLogin() throws GetAcountException, GetAllAcountsException {
 		when(accountService.findByUsernameAndPassword(account.getUserName(),account.getPassword())).thenReturn(account);
 		assertEquals(account,accountContoller.login(account));
-		verify(accountService).findByUsernameAndPassword(account.getUserName(),account.getPassword());
 		System.out.println("account valid !! :"+accountContoller.login(account));
 		System.out.println("\n  "+accountService.findByUsernameAndPassword(account.getUserName(),account.getPassword()).getUserName()+" "+accountService.findByUsernameAndPassword(account.getUserName(),account.getPassword()).getPassword());
 
 		
 		when(accountService.findByUsernameAndPassword(account2.getUserName(),account2.getPassword())).thenReturn(account2);
 		assertEquals(account2,accountContoller.login(account2));
-		verify(accountService).findByUsernameAndPassword(account2.getUserName(),account2.getPassword());
 		System.out.println("account2  valid !! : "+accountContoller.login(account2));
 		System.out.println("\n  "+accountService.findByUsernameAndPassword(account2.getUserName(),account2.getPassword()).getUserName()+" "+accountService.findByUsernameAndPassword(account2.getUserName(),account2.getPassword()).getPassword());
 	}

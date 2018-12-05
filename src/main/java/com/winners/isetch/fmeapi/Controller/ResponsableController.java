@@ -51,41 +51,50 @@ public class ResponsableController {
 
     @RequestMapping(method = RequestMethod.POST,value="/responsable")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void addResponsable(@RequestBody Responsable responsable) {
+	public boolean addResponsable(@RequestBody Responsable responsable) {
 		
 		try {
 			responsableService.addResponsable(responsable);
+			return true;
 		} catch (AddResponsableException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 
     @RequestMapping(method = RequestMethod.PUT,value="/responsable/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void editResponsable(@RequestBody Responsable responsable, @PathVariable int id) {
+	public boolean editResponsable(@RequestBody Responsable responsable, @PathVariable int id) {
 		try {
 			responsableService.editResponsable(responsable, id);
+			return true;
 		} catch (EditResponsableException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 
     @RequestMapping(method = RequestMethod.DELETE,value="/responsable/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void deleteResponsable(@PathVariable int id) {
+	public boolean deleteResponsable(@PathVariable int id) {
 		try {
 			responsableService.deleteResponsable(id);
+			return true;
 		} catch (DeleteResponsableException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
+		
 	}
 	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteAllResponsables")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void deleteAllResponsables() {
+	public boolean deleteAllResponsables() {
 		try {
 			responsableService.deleteAllResponsables();
+			return true;
 		} catch (DeleteAllException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 
