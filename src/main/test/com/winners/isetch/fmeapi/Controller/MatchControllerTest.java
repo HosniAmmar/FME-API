@@ -2,7 +2,6 @@ package com.winners.isetch.fmeapi.Controller;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -14,7 +13,6 @@ import org.junit.Test;
 import com.winners.isetch.fmeapi.Entity.Matchee;
 import com.winners.isetch.fmeapi.Service.MatchService;
 import com.winners.isetch.fmeapi.exceptionMatch.AddMatchException;
-import com.winners.isetch.fmeapi.exceptionMatch.DeleteAllException;
 import com.winners.isetch.fmeapi.exceptionMatch.DeleteMatchException;
 import com.winners.isetch.fmeapi.exceptionMatch.EditMatchException;
 import com.winners.isetch.fmeapi.exceptionMatch.GetListMatchException;
@@ -42,38 +40,30 @@ public class MatchControllerTest {
 	public void testGetAllmatchs() throws GetListMatchException {
 		when(matchService.getmatchs()).thenReturn(listM);
 		assertEquals(listM2,matchController.getAllmatchs());
-		verify(matchService).getmatchs();
 	}
 
 	@Test
 	public void testGetmatchById() throws GetMatchByIdException {
 		when(matchService.getmatch(m1.getId())).thenReturn(m1);
 		assertEquals(m1,matchController.getmatchById(m1.getId()));
-		verify(matchService).getmatch(m1.getId());
 	}
 
 	@Test
 	public void testAddmatch() throws AddMatchException {
-		matchController.addmatch(m1);
-		verify(matchService).addmatch(m1);
+		when(matchService.addmatch(m1)).thenReturn(true);
+		assertEquals(true,matchController.addmatch(m1));
 	}
 
 	@Test
 	public void testEditmatch() throws EditMatchException {
-		matchController.editmatch(m2,m1.getId());
-		verify(matchService).editmatch(m2,m1.getId());
-	}
+		when(matchService.editmatch(m1,m1.getId())).thenReturn(true);
+		assertEquals(true,matchController.editmatch(m1,m1.getId()));	}
 
 	@Test
 	public void testDeletematch() throws DeleteMatchException {
-		matchController.deletematch(m1.getId());
-		verify(matchService).deletematch(m1.getId());
+		when(matchService.deletematch(m1.getId())).thenReturn(true);
+		assertEquals(true,matchController.deletematch(m1.getId()));	
 	}
-	@Test
-	public void testDeleteAllmatchs() throws DeleteAllException {
-		matchController.deleteAllmatchs();
-		verify(matchService).deleteAllmatchs();
 
-	}
 
 }

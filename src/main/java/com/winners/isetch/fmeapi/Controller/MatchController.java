@@ -67,32 +67,38 @@ public class MatchController {
 
     @RequestMapping(method = RequestMethod.POST,value="/match")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void addmatch(@RequestBody Matchee match) {
+	public boolean addmatch(@RequestBody Matchee match) {
 		
 		try {
 			matchService.addmatch(match);
+			return true;
 		} catch (AddMatchException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 
     @RequestMapping(method = RequestMethod.PUT,value="/match/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void editmatch(@RequestBody Matchee match, @PathVariable int id) {
+	public boolean editmatch(@RequestBody Matchee match, @PathVariable int id) {
 		try {
 			matchService.editmatch(match, id);
+			return true;
 		} catch (EditMatchException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 
     @RequestMapping(method = RequestMethod.DELETE,value="/match/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void deletematch(@PathVariable int id) {
+	public boolean deletematch(@PathVariable int id) {
 		try {
 			matchService.deletematch(id);
+			return true;
 		} catch (DeleteMatchException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 	
@@ -101,11 +107,13 @@ public class MatchController {
     
     @RequestMapping(method = RequestMethod.DELETE, value = "/deleteAllMatchs")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void deleteAllmatchs() {
+	public boolean deleteAllmatchs() {
 		try {
 			matchService.deleteAllmatchs();
+			return true;
 		} catch (DeleteAllException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 }

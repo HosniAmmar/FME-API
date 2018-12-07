@@ -65,43 +65,51 @@ public class TeamController {
 
     @RequestMapping(method = RequestMethod.POST,value="/team")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void addTeam(@RequestBody Team team) {
+	public boolean addTeam(@RequestBody Team team) {
 		
 		try {
 			teamService.addTeam(team);
+			return true;
 		} catch (AddTeamException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 
     @RequestMapping(method = RequestMethod.PUT,value="/team/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void editTeam(@RequestBody Team team, @PathVariable int id) {
+	public boolean editTeam(@RequestBody Team team, @PathVariable int id) {
 		try {
 			teamService.editTeam(team, id);
+			return true;
 		} catch (EditTeamException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 
     @RequestMapping(method = RequestMethod.DELETE,value="/team/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void deleteTeam(@PathVariable int id) {
+	public boolean deleteTeam(@PathVariable int id) {
 		try {
 			teamService.deleteTeam(id);
+			return true;
 		} catch (DeleteTeamException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
     
     
 	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteAllTeams")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void deleteAllTeams() {
+	public boolean deleteAllTeams() {
 		try {
 			teamService.deleteAllTeams();
+			return true;
 		} catch (DeleteAllException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 

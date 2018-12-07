@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.winners.isetch.fmeapi.Entity.Warning;
 import com.winners.isetch.fmeapi.Service.WarningService;
+import com.winners.isetch.fmeapi.exceptionWarning.AddWarningException;
+import com.winners.isetch.fmeapi.exceptionWarning.GetWarningByMatchException;
+import com.winners.isetch.fmeapi.exceptionWarning.GetWarningByPlayerException;
+import com.winners.isetch.fmeapi.exceptionWarning.GetWarningByPlayerInMatchException;
 
 
 @RestController
@@ -26,10 +30,25 @@ public class WarningController {
 
 
 		
-    @RequestMapping(method = RequestMethod.GET,value="/MatchWarning/{id}")
+    public WarningService getWarningService() {
+		return warningService;
+	}
+
+	public void setWarningService(WarningService warningService) {
+		this.warningService = warningService;
+	}
+
+	@RequestMapping(method = RequestMethod.GET,value="/MatchWarning/{id}")
    	@CrossOrigin(origins = crossOriginUrl)
    	public List<Warning> getWarningsInMatch(@PathVariable int id) {
-    	 List<Warning>lw=warningService.getWarningsInMatch(id);
+    	 List<Warning> lw=null;
+		try {
+			lw = warningService.getWarningsInMatch(id);
+			
+		} catch (GetWarningByMatchException e) {
+			System.out.println(e.getMessage());
+
+		}
     	 return lw;
     	
    	}
@@ -37,7 +56,13 @@ public class WarningController {
     @RequestMapping(method = RequestMethod.GET,value="/PlayerWarning/{id}")
    	@CrossOrigin(origins = crossOriginUrl)
    	public List<Warning> getWarningsByPlayer(@PathVariable int id) {
-    	 List<Warning>lw=warningService.getWarningsByPlayer(id);
+    	 List<Warning> lw=null;
+		try {
+			lw = warningService.getWarningsByPlayer(id);
+		} catch (GetWarningByPlayerException e) {
+			System.out.println(e.getMessage());
+
+		}
     	 return lw;
     	
    	}
@@ -45,7 +70,13 @@ public class WarningController {
     @RequestMapping(method = RequestMethod.GET,value="/MatchPlayerWarning/{idP,idM}")
    	@CrossOrigin(origins = crossOriginUrl)
    	public List<Warning> getWarningsByPlayerInMatch(@PathVariable int idP,@PathVariable int idM) {
-    	 List<Warning>lw=warningService.getWarningsByPlayerInMatch(idP,idM);
+    	 List<Warning> lw=null;
+		try {
+			lw = warningService.getWarningsByPlayerInMatch(idP,idM);
+		} catch (GetWarningByPlayerInMatchException e) {
+			System.out.println(e.getMessage());
+
+		}
     	 return lw;
     	
    	}
@@ -54,7 +85,12 @@ public class WarningController {
 	@CrossOrigin(origins = crossOriginUrl)
 	public boolean addWarning(@RequestBody Warning warning) {
 		
-			return warningService.addWarning(warning);
+			 try {
+				warningService.addWarning(warning);
+				return true;
+			} catch (AddWarningException e) {
+				return false;
+			}
 	
 	}
     

@@ -9,6 +9,10 @@ import org.springframework.stereotype.Service;
 import com.winners.isetch.fmeapi.Entity.GoalScored;
 
 import com.winners.isetch.fmeapi.Repository.GoalScoredRepository;
+import com.winners.isetch.fmeapi.exceptionGoalScored.AddGoalScoredException;
+import com.winners.isetch.fmeapi.exceptionGoalScored.GetGoalScoredByMatchException;
+import com.winners.isetch.fmeapi.exceptionGoalScored.GetGoalScoredByPlayerException;
+import com.winners.isetch.fmeapi.exceptionGoalScored.GetGoalScoredByPlayerInMatchException;
 
 
 @Service
@@ -22,7 +26,7 @@ public class GoalScoredService {
 		return goalScoredRepository.existsById(id);
 	}
 
-	public List<GoalScored> getGoalScoredsInMatch(int idMatch) {
+	public List<GoalScored> getGoalScoredsInMatch(int idMatch) throws GetGoalScoredByMatchException {
 		List<GoalScored> lgs = null;
 		List<GoalScored> lgs2 = new ArrayList<GoalScored>();
 		lgs = (List<GoalScored>) goalScoredRepository.findAll();
@@ -34,12 +38,13 @@ public class GoalScoredService {
 				}
 
 			}
-		}
+		}else
+			throw new GetGoalScoredByMatchException("Erreur : List vide ! ");
 
 		return lgs2;
 	}
 
-	public List<GoalScored> getGoalScoredsByPlayer(int idPlayer) {
+	public List<GoalScored> getGoalScoredsByPlayer(int idPlayer) throws GetGoalScoredByPlayerException {
 		List<GoalScored> lgs = null;
 		List<GoalScored> lgs2 = new ArrayList<GoalScored>();
 		lgs = (List<GoalScored>) goalScoredRepository.findAll();
@@ -51,12 +56,14 @@ public class GoalScoredService {
 				}
 
 			}
-		}
+		}else
+			throw new GetGoalScoredByPlayerException("Erreur : List vide ! ");
+
 
 		return lgs2;
 	}
 
-	public List<GoalScored> getGoalScoredsByPlayerInMatch(int idPlayer, int idMatch) {
+	public List<GoalScored> getGoalScoredsByPlayerInMatch(int idPlayer, int idMatch) throws GetGoalScoredByPlayerInMatchException {
 		List<GoalScored> lgs = null;
 		List<GoalScored> lgs2 = new ArrayList<GoalScored>();
 		lgs = (List<GoalScored>) goalScoredRepository.findAll();
@@ -68,7 +75,9 @@ public class GoalScoredService {
 				}
 
 			}
-		}
+		}else
+			throw new GetGoalScoredByPlayerInMatchException("Erreur : List vide ! ");
+
 
 		return lgs2;
 	}
@@ -81,9 +90,10 @@ public class GoalScoredService {
 
 	}
 
-	public boolean addGoalScored(GoalScored goalScored) {
+	public boolean addGoalScored(GoalScored goalScored) throws AddGoalScoredException {
 		if (isExiste(goalScored.getId()))
-			return false;
+				throw new AddGoalScoredException("Erreur : existe dans la base ! ");
+
 		else {
 			goalScoredRepository.save(goalScored);
 			return true;

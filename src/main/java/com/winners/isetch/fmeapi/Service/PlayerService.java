@@ -45,28 +45,31 @@ public class PlayerService {
 
 	}
 
-	public void addPlayer(Player player) throws AddPlayerException {
+	public boolean addPlayer(Player player) throws AddPlayerException {
 		if(isExiste(player.getId()))
 			throw new AddPlayerException("Erreur : ce Player est existe dans la base !");
 		else
 			playerRepository.save(player);
+		return true;
 	}
 
-	public void editPlayer(Player player, int id) throws EditPlayerException {
+	public boolean editPlayer(Player player, int id) throws EditPlayerException {
 		if(!isExiste(id))
 			throw new EditPlayerException("Erreur : ID incorrect !");
 		else {
 			playerRepository.deleteById(id);
 			playerRepository.save(player);
+			return true;
 		}
 		
 	}
 
-	public void deletePlayer(int id) throws DeletePlayerException {
+	public boolean deletePlayer(int id) throws DeletePlayerException {
 		if(!isExiste(id))
 			throw new DeletePlayerException("Erreur : ID incorrect");
 		else
 			playerRepository.deleteById(id);
+		return true;
 	}
 	
 	public void deleteAllPlayers() throws DeleteAllException {

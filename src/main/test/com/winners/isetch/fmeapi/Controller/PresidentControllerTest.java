@@ -2,7 +2,6 @@ package com.winners.isetch.fmeapi.Controller;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -38,39 +37,33 @@ public class PresidentControllerTest {
 	public void testGetAllPresidents() throws GetListPresidentException {
 		when(presidentService.getPresidents()).thenReturn(listP1);
 		assertEquals(listP1, presidentController.getAllPresidents());
-		verify(presidentService).getPresidents();
 	}
 
 	@Test
 	public void testGetPresidentById() throws GetPresidentByIdException {
 		when(presidentService.getPresident(p1.getId())).thenReturn(p1);
 		assertEquals(p1, presidentController.getPresidentById(p1.getId()));
-		verify(presidentService).getPresident(p1.getId());
 	}
 
 	@Test
 	public void testAddPresident() throws AddPresidentException {
-		presidentController.addPresident(p1);
-		verify(presidentService).addPresident(p1);
+		when(presidentService.addPresident(p1)).thenReturn(true);
+		assertEquals(true, presidentController.addPresident(p1));
 	}
 
 	@Test
 	public void testEditPresident() throws EditPresidentException {
-		presidentController.editPresident(p1,p1.getId());
-		verify(presidentService).editPresident(p1,p1.getId());
+		when(presidentService.editPresident(p1,p1.getId())).thenReturn(true);
+		assertEquals(true, presidentController.editPresident(p1,p1.getId()));
 	}
 
 	@Test
 	public void testDeletePresident() throws DeletePresidentException {
-		presidentController.deletePresident(p1.getId());
-		verify(presidentService).deletePresident(p1.getId());
+		when(presidentService.deletePresident(p1.getId())).thenReturn(true);
+		assertEquals(true, presidentController.deletePresident(p1.getId()));
 	}
 
-//	@Test
-//	public void testDeleteAllPresidents() {
-//		fail("Not yet implemented");
-//	}
-//
+
 
 
 }

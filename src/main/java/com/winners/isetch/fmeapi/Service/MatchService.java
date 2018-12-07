@@ -48,28 +48,31 @@ public class MatchService {
 
 	}
 
-	public void addmatch(Matchee match) throws AddMatchException {
+	public boolean addmatch(Matchee match) throws AddMatchException {
 		if(isExiste(match.getId()))
 			throw new AddMatchException("Erreur : ce match est existe dans la base !");
 		else
 		matchRepository.save(match);
+		return true;
 	}
 
-	public void editmatch(Matchee match, int id) throws EditMatchException {
+	public boolean editmatch(Matchee match, int id) throws EditMatchException {
 		if(!isExiste(id))
 			throw new EditMatchException("Erreur : ID incorrect !");
 		else {
 			matchRepository.deleteById(id);
 			matchRepository.save(match);
+			return true;
 		}
 		
 	}
 
-	public void deletematch(int id) throws DeleteMatchException {
+	public boolean deletematch(int id) throws DeleteMatchException {
 		if(!isExiste(id))
 			throw new DeleteMatchException("Erreur : ID incorrect");
 		else
 		matchRepository.deleteById(id);
+		return true;
 	}
 	
 	

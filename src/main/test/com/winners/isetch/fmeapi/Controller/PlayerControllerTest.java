@@ -2,7 +2,6 @@ package com.winners.isetch.fmeapi.Controller;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -14,7 +13,6 @@ import org.junit.Test;
 import com.winners.isetch.fmeapi.Entity.Player;
 import com.winners.isetch.fmeapi.Service.PlayerService;
 import com.winners.isetch.fmeapi.exceptionPlayer.AddPlayerException;
-import com.winners.isetch.fmeapi.exceptionPlayer.DeleteAllException;
 import com.winners.isetch.fmeapi.exceptionPlayer.DeletePlayerException;
 import com.winners.isetch.fmeapi.exceptionPlayer.EditPlayerException;
 import com.winners.isetch.fmeapi.exceptionPlayer.GetListPlayerException;
@@ -43,39 +41,32 @@ public class PlayerControllerTest {
 	public void testGetAllPlayers() throws GetListPlayerException {
 		when(playerService.getPlayers()).thenReturn(l);
 		assertEquals(l2,playerController.getAllPlayers());
-		verify(playerService).getPlayers();
 	}
 
 	@Test
 	public void testGetPlayerById() throws GetPlayerByIdException {
 		when(playerService.getPlayer(player.getId())).thenReturn(player);
 		assertEquals(player,playerController.getPlayerById(player.getId()));
-		verify(playerService).getPlayer(player.getId());
 	}
 
 	@Test
 	public void testAddPlayer() throws AddPlayerException {
-		playerController.addPlayer(player);
-		verify(playerService).addPlayer(player);
+		when(playerService.addPlayer(player)).thenReturn(true);
+		assertEquals(true,playerController.addPlayer(player));
 		
 	}
 
 	@Test
 	public void testEditPlayer() throws EditPlayerException {
-		playerController.editPlayer(player, player.getId());
-		verify(playerService).editPlayer(player, player.getId());
+		when(playerService.editPlayer(player,player.getId())).thenReturn(true);
+		assertEquals(true,playerController.editPlayer(player,player.getId()));	
 	}
 
 	@Test
 	public void testDeletePlayer() throws DeletePlayerException {
-		playerController.deletePlayer(player.getId());
-		verify(playerService).deletePlayer(player.getId());
+		when(playerService.deletePlayer(player.getId())).thenReturn(true);
+		assertEquals(true,playerController.deletePlayer(player.getId()));	
 	}
 
-	@Test
-	public void testSetPlayerService() throws DeleteAllException {
-		playerController.deleteAllPlayers();
-		verify(playerService).deleteAllPlayers();
-		}
 
 }

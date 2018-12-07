@@ -13,7 +13,7 @@ public class Commissioner extends Personne {
     private int id;
 	private int badge;
 
-	;
+	
 
 	public Commissioner() {
 	

@@ -2,7 +2,6 @@ package com.winners.isetch.fmeapi.Controller;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -39,32 +38,34 @@ public class SecretaryControllerTest {
 	public void testGetAllSecretarys() throws GetListSecretaryException {
 		when(secretaryService.getSecretarys()).thenReturn(listS);
 		assertEquals(listS, secretaryController.getAllSecretarys());
-		verify(secretaryService).getSecretarys();
 	}
 
 	@Test
 	public void testGetSecretaryById() throws GetSecretaryByIdException {
 		when(secretaryService.getSecretary(s1.getId())).thenReturn(s1);
 		assertEquals(s1, secretaryController.getSecretaryById(s1.getId()));
-		verify(secretaryService).getSecretary(s1.getId());
 	}
 
 	@Test
 	public void testAddSecretary() throws AddSecretaryException {
-		secretaryController.addSecretary(s1);
-		verify(secretaryService).addSecretary(s1);
+		when(secretaryService.addSecretary(s1)).thenReturn(true);
+		assertEquals(true, secretaryController.addSecretary(s1));
 	}
 
 	@Test
 	public void testEditSecretary() throws EditSecretaryException {
-		secretaryController.editSecretary(s1,s1.getId());
-		verify(secretaryService).editSecretary(s1,s1.getId());
+		when(secretaryService.editSecretary(s1,s1.getId())).thenReturn(true);
+		assertEquals(true, secretaryController.editSecretary(s1,s1.getId()));
+
+	
 	}
 
 	@Test
 	public void testDeleteSecretary() throws DeleteSecretaryException {
-		secretaryController.deleteSecretary(s1.getId());
-		verify(secretaryService).deleteSecretary(s1.getId());
+		when(secretaryService.deleteSecretary(s1.getId())).thenReturn(true);
+		assertEquals(true, secretaryController.deleteSecretary(s1.getId()));
+
+	
 	}
 
 

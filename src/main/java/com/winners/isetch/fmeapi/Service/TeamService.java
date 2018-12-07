@@ -48,28 +48,31 @@ public class TeamService  {
 
 	}
 
-	public void addTeam(Team team) throws AddTeamException {
+	public boolean addTeam(Team team) throws AddTeamException {
 		if(isExiste(team.getId()))
 			throw new AddTeamException("Erreur : ce Team est existe dans la base !");
 		else
 			teamRepository.save(team);
+		return true;
 	}
 
-	public void editTeam(Team team, int id) throws EditTeamException {
+	public boolean editTeam(Team team, int id) throws EditTeamException {
 		if(!isExiste(id))
 			throw new EditTeamException("Erreur : ID incorrect !");
 		else {
 			teamRepository.deleteById(id);
 			teamRepository.save(team);
+			return true;
 		}
 		
 	}
 
-	public void deleteTeam(int id) throws DeleteTeamException {
+	public boolean deleteTeam(int id) throws DeleteTeamException {
 		if(!isExiste(id))
 			throw new DeleteTeamException("Erreur : ID incorrect");
 		else
 			teamRepository.deleteById(id);
+		return true;
 	}
 	
 	public List<Player>getTeamPlayers(int idEquipe){

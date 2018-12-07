@@ -50,41 +50,52 @@ public class CommissionerController {
 
     @RequestMapping(method = RequestMethod.POST,value="/commissioner")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void addCommissioner(@RequestBody Commissioner commissioner) {
+	public boolean addCommissioner(@RequestBody Commissioner commissioner)  {
 		
 		try {
+    	
 			commissionerService.addCommissioner(commissioner);
+			return true;
 		} catch (AddCommissionerException e) {
-			System.out.println(e.getMessage());
+		System.out.println(e.getMessage());
+		return false;
+			
 		}
 	}
 
     @RequestMapping(method = RequestMethod.PUT,value="/commissioner/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void editCommissioner(@RequestBody Commissioner commissioner, @PathVariable int id) {
+	public boolean editCommissioner(@RequestBody Commissioner commissioner, @PathVariable int id) {
 		try {
 			commissionerService.editCommissioner(commissioner, id);
+			return true;
 		} catch (EditCommissionerException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
+		
 	}
 
     @RequestMapping(method = RequestMethod.DELETE,value="/commissioner/{id}")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void deleteCommissioner(@PathVariable int id) {
+	public boolean deleteCommissioner(@PathVariable int id) {
 		try {
 			commissionerService.deleteCommissioner(id);
+			return true;
 		} catch (DeleteCommissionerException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteAllCommissioners")
 	@CrossOrigin(origins = crossOriginUrl)
-	public void deleteAllCommissioners() {
+	public boolean deleteAllCommissioners() {
 		try {
 			commissionerService.deleteAllCommissioners();
+			return true;
 		} catch (DeleteAllException e) {
 			System.out.println(e.getMessage());
+			return false;
 		}
 	}
 
