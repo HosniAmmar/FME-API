@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.*;
 
 import com.winners.isetch.fmeapi.Entity.Responsable;
 import com.winners.isetch.fmeapi.Service.ResponsableService;
-import com.winners.isetch.fmeapi.exceptionResponsable.AddResponsableException;
-import com.winners.isetch.fmeapi.exceptionResponsable.DeleteAllException;
-import com.winners.isetch.fmeapi.exceptionResponsable.DeleteResponsableException;
-import com.winners.isetch.fmeapi.exceptionResponsable.EditResponsableException;
-import com.winners.isetch.fmeapi.exceptionResponsable.GetListResponsableException;
-import com.winners.isetch.fmeapi.exceptionResponsable.GetResponsableByIdException;
+import com.winners.isetch.fmeapi.exceptions.exceptionResponsable.AddResponsableException;
+import com.winners.isetch.fmeapi.exceptions.exceptionResponsable.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptions.exceptionResponsable.DeleteResponsableException;
+import com.winners.isetch.fmeapi.exceptions.exceptionResponsable.EditResponsableException;
+import com.winners.isetch.fmeapi.exceptions.exceptionResponsable.GetListResponsableException;
+import com.winners.isetch.fmeapi.exceptions.exceptionResponsable.GetResponsableByIdException;
 
 @RestController
 public class ResponsableController {

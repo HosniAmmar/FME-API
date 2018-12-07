@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import com.winners.isetch.fmeapi.Entity.Account;
 import com.winners.isetch.fmeapi.Service.AccountService;
-import com.winners.isetch.fmeapi.exceptionAcount.GetAcountException;
-import com.winners.isetch.fmeapi.exceptionAcount.GetAllAcountsException;
+import com.winners.isetch.fmeapi.exceptions.exceptionAcount.GetAcountException;
+import com.winners.isetch.fmeapi.exceptions.exceptionAcount.GetAllAcountsException;
 
 @RestController
 public class AccountController {

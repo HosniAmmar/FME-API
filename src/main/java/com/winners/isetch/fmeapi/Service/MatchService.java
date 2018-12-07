@@ -10,12 +10,12 @@ import org.springframework.stereotype.Service;
 import com.winners.isetch.fmeapi.Entity.Matchee;
 import com.winners.isetch.fmeapi.Repository.MatchRepository;
 
-import com.winners.isetch.fmeapi.exceptionMatch.AddMatchException;
-import com.winners.isetch.fmeapi.exceptionMatch.DeleteAllException;
-import com.winners.isetch.fmeapi.exceptionMatch.DeleteMatchException;
-import com.winners.isetch.fmeapi.exceptionMatch.EditMatchException;
-import com.winners.isetch.fmeapi.exceptionMatch.GetListMatchException;
-import com.winners.isetch.fmeapi.exceptionMatch.GetMatchByIdException;
+import com.winners.isetch.fmeapi.exceptions.exceptionMatch.AddMatchException;
+import com.winners.isetch.fmeapi.exceptions.exceptionMatch.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptions.exceptionMatch.DeleteMatchException;
+import com.winners.isetch.fmeapi.exceptions.exceptionMatch.EditMatchException;
+import com.winners.isetch.fmeapi.exceptions.exceptionMatch.GetListMatchException;
+import com.winners.isetch.fmeapi.exceptions.exceptionMatch.GetMatchByIdException;
 
 @Service
 public class MatchService {
@@ -81,6 +81,10 @@ public class MatchService {
 			throw new DeleteAllException("Erreur : il n'y a pas des matches pour effacer !" );
 		else
 		matchRepository.deleteAll();
+	}
+
+	public List<Matchee> getMatchByDate(String date){
+		return matchRepository.findByDateEquals(date);
 	}
 	
 	

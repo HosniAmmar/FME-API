@@ -4,12 +4,12 @@ import com.winners.isetch.fmeapi.Entity.Player;
 import com.winners.isetch.fmeapi.Entity.Team;
 import com.winners.isetch.fmeapi.Repository.PlayerRepository;
 import com.winners.isetch.fmeapi.Repository.TeamRepository;
-import com.winners.isetch.fmeapi.exceptionTeam.AddTeamException;
-import com.winners.isetch.fmeapi.exceptionTeam.DeleteAllException;
-import com.winners.isetch.fmeapi.exceptionTeam.DeleteTeamException;
-import com.winners.isetch.fmeapi.exceptionTeam.EditTeamException;
-import com.winners.isetch.fmeapi.exceptionTeam.GetListTeamException;
-import com.winners.isetch.fmeapi.exceptionTeam.GetTeamByIdException;
+import com.winners.isetch.fmeapi.exceptions.exceptionTeam.AddTeamException;
+import com.winners.isetch.fmeapi.exceptions.exceptionTeam.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptions.exceptionTeam.DeleteTeamException;
+import com.winners.isetch.fmeapi.exceptions.exceptionTeam.EditTeamException;
+import com.winners.isetch.fmeapi.exceptions.exceptionTeam.GetListTeamException;
+import com.winners.isetch.fmeapi.exceptions.exceptionTeam.GetTeamByIdException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -93,6 +93,11 @@ public class TeamService  {
 			throw new DeleteAllException("Erreur : il n'y a pas des Teams pour effacer !" );
 		else
 			teamRepository.deleteAll();
+	}
+	public List<Team> getTeamByNameContaining(String name){
+		List<Team> lt=new ArrayList<>();
+		teamRepository.findByNameContaining(name).forEach(lt::add);
+		return lt;
 	}
 
 }

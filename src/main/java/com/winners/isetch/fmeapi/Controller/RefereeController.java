@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.winners.isetch.fmeapi.Entity.Referee;
 import com.winners.isetch.fmeapi.Service.RefereeService;
-import com.winners.isetch.fmeapi.exceptionReferee.AddRefereeException;
-import com.winners.isetch.fmeapi.exceptionReferee.DeleteAllException;
-import com.winners.isetch.fmeapi.exceptionReferee.DeleteRefereeException;
-import com.winners.isetch.fmeapi.exceptionReferee.EditRefereeException;
-import com.winners.isetch.fmeapi.exceptionReferee.GetListRefereeException;
-import com.winners.isetch.fmeapi.exceptionReferee.GetRefereeByIdException;
+import com.winners.isetch.fmeapi.exceptions.exceptionReferee.AddRefereeException;
+import com.winners.isetch.fmeapi.exceptions.exceptionReferee.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptions.exceptionReferee.DeleteRefereeException;
+import com.winners.isetch.fmeapi.exceptions.exceptionReferee.EditRefereeException;
+import com.winners.isetch.fmeapi.exceptions.exceptionReferee.GetListRefereeException;
+import com.winners.isetch.fmeapi.exceptions.exceptionReferee.GetRefereeByIdException;
 
 
 

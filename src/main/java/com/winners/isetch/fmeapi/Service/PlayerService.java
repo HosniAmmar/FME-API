@@ -2,12 +2,12 @@ package com.winners.isetch.fmeapi.Service;
 
 import com.winners.isetch.fmeapi.Entity.Player;
 import com.winners.isetch.fmeapi.Repository.PlayerRepository;
-import com.winners.isetch.fmeapi.exceptionPlayer.AddPlayerException;
-import com.winners.isetch.fmeapi.exceptionPlayer.DeleteAllException;
-import com.winners.isetch.fmeapi.exceptionPlayer.DeletePlayerException;
-import com.winners.isetch.fmeapi.exceptionPlayer.EditPlayerException;
-import com.winners.isetch.fmeapi.exceptionPlayer.GetListPlayerException;
-import com.winners.isetch.fmeapi.exceptionPlayer.GetPlayerByIdException;
+import com.winners.isetch.fmeapi.exceptions.exceptionPlayer.AddPlayerException;
+import com.winners.isetch.fmeapi.exceptions.exceptionPlayer.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptions.exceptionPlayer.DeletePlayerException;
+import com.winners.isetch.fmeapi.exceptions.exceptionPlayer.EditPlayerException;
+import com.winners.isetch.fmeapi.exceptions.exceptionPlayer.GetListPlayerException;
+import com.winners.isetch.fmeapi.exceptions.exceptionPlayer.GetPlayerByIdException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +34,13 @@ public class PlayerService {
 		else 
 			return lp;
 		
+
+	}
+	public List<Player> getPlayersByTeamId(int id) throws GetListPlayerException {
+		List<Player> lp =null;
+		lp = (List<Player>) playerRepository.getPlayerByActualTeamIdEquals(id);
+			return lp;
+
 
 	}
 

@@ -1,10 +1,7 @@
 package com.winners.isetch.fmeapi.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Team {
@@ -34,16 +31,16 @@ public class Team {
 	public Team() {
 	}
 
-	public Team(String name, String logoUrl, String adress, String region, String creationDate,
-			String presidentirstName, String presidentLastName, String presidentPhone, String secretaryFirstName,
-			String secretaryLastName, String secretaryPhone, String mail, String phone, String fax, String mainStadium,
-			String mainStadiumLocation, String teamPhoto, String division) {
+	public Team(String name, String logoUrl, String address, String region, String creationDate, String presidentFirstName,
+				String presidentLastName, String presidentPhone, String secretaryFirstName, String secretaryLastName,
+				String secretaryPhone, String mail, String phone, String fax, String mainStadium, String mainStadiumLocation,
+				String teamPhoto, String division) {
 		this.name = name;
 		this.logoUrl = logoUrl;
-		this.address = adress;
+		this.address = address;
 		this.region = region;
 		this.creationDate = creationDate;
-		this.presidentFirstName = presidentirstName;
+		this.presidentFirstName = presidentFirstName;
 		this.presidentLastName = presidentLastName;
 		this.presidentPhone = presidentPhone;
 		this.secretaryFirstName = secretaryFirstName;

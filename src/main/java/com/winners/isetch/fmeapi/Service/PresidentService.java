@@ -2,12 +2,12 @@ package com.winners.isetch.fmeapi.Service;
 
 import com.winners.isetch.fmeapi.Entity.President;
 import com.winners.isetch.fmeapi.Repository.PresidentRepository;
-import com.winners.isetch.fmeapi.exceptionPresident.AddPresidentException;
-import com.winners.isetch.fmeapi.exceptionPresident.DeleteAllException;
-import com.winners.isetch.fmeapi.exceptionPresident.DeletePresidentException;
-import com.winners.isetch.fmeapi.exceptionPresident.EditPresidentException;
-import com.winners.isetch.fmeapi.exceptionPresident.GetListPresidentException;
-import com.winners.isetch.fmeapi.exceptionPresident.GetPresidentByIdException;
+import com.winners.isetch.fmeapi.exceptions.exceptionPresident.AddPresidentException;
+import com.winners.isetch.fmeapi.exceptions.exceptionPresident.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptions.exceptionPresident.DeletePresidentException;
+import com.winners.isetch.fmeapi.exceptions.exceptionPresident.EditPresidentException;
+import com.winners.isetch.fmeapi.exceptions.exceptionPresident.GetListPresidentException;
+import com.winners.isetch.fmeapi.exceptions.exceptionPresident.GetPresidentByIdException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

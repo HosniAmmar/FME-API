@@ -17,23 +17,27 @@ public class Player extends Personne{
 	private int actualTeamId;
 	private int previousTeamId;
 	private String category;
+	// is playing as reserve
+	private boolean isPlayingAsR;
+
+	// is playing as principal
+	private boolean isPlayingAsP;
+
 
 	public Player() {
 		
 	}
 
-	public Player(String firstName, String lastName, String phone, String natIdNum, String address, String mailAddress,
-			double height, double weight, String birthdate, String nationality, String photoUrl, String region,
-			String city, String numpasseport, String comment, int id, String licenseNumber, int squadNumber,
-			int actualTeamId, int previousTeamId, String category) {
-		super(firstName, lastName, phone, natIdNum, address, mailAddress, height, weight, birthdate, nationality,
-				photoUrl, region, city, numpasseport, comment);
-		this.id = id;
+
+	public Player(String firstName, String lastName, String phone, String natIdNum, String address, String mailAddress, double height, double weight, String birthdate, String nationality, String photoUrl, String region, String city, String numpasseport, String comment, String licenseNumber, int squadNumber, int actualTeamId, int previousTeamId, String category, boolean isPlayingAsR, boolean isPlayingAsP) {
+		super(firstName, lastName, phone, natIdNum, address, mailAddress, height, weight, birthdate, nationality, photoUrl, region, city, numpasseport, comment);
 		this.licenseNumber = licenseNumber;
 		this.squadNumber = squadNumber;
 		this.actualTeamId = actualTeamId;
 		this.previousTeamId = previousTeamId;
 		this.category = category;
+		this.isPlayingAsR = isPlayingAsR;
+		this.isPlayingAsP = isPlayingAsP;
 	}
 
 	public int getId() {
@@ -80,9 +84,26 @@ public class Player extends Personne{
 		return category;
 	}
 
+	public boolean isPlayingAsR() {
+		return isPlayingAsR;
+	}
+
+	public void setPlayingAsR(boolean playingAsR) {
+		isPlayingAsR = playingAsR;
+	}
+
+	public boolean isPlayingAsP() {
+		return isPlayingAsP;
+	}
+
+	public void setPlayingAsP(boolean playingAsP) {
+		isPlayingAsP = playingAsP;
+	}
+
 	public void setCategory(String category) {
 		this.category = category;
 	}
+
 
 	@Override
 	public String toString() {

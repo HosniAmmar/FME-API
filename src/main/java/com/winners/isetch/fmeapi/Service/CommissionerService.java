@@ -2,12 +2,12 @@ package com.winners.isetch.fmeapi.Service;
 
 import com.winners.isetch.fmeapi.Entity.Commissioner;
 import com.winners.isetch.fmeapi.Repository.CommissionerRepository;
-import com.winners.isetch.fmeapi.exceptionCommissioner.AddCommissionerException;
-import com.winners.isetch.fmeapi.exceptionCommissioner.DeleteAllException;
-import com.winners.isetch.fmeapi.exceptionCommissioner.DeleteCommissionerException;
-import com.winners.isetch.fmeapi.exceptionCommissioner.EditCommissionerException;
-import com.winners.isetch.fmeapi.exceptionCommissioner.GetCommissionerByIdException;
-import com.winners.isetch.fmeapi.exceptionCommissioner.GetListCommissionerException;
+import com.winners.isetch.fmeapi.exceptions.exceptionCommissioner.AddCommissionerException;
+import com.winners.isetch.fmeapi.exceptions.exceptionCommissioner.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptions.exceptionCommissioner.DeleteCommissionerException;
+import com.winners.isetch.fmeapi.exceptions.exceptionCommissioner.EditCommissionerException;
+import com.winners.isetch.fmeapi.exceptions.exceptionCommissioner.GetCommissionerByIdException;
+import com.winners.isetch.fmeapi.exceptions.exceptionCommissioner.GetListCommissionerException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

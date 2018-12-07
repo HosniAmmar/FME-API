@@ -2,12 +2,12 @@ package com.winners.isetch.fmeapi.Service;
 
 import com.winners.isetch.fmeapi.Entity.Secretary;
 import com.winners.isetch.fmeapi.Repository.SecretaryRepository;
-import com.winners.isetch.fmeapi.exceptionSecretary.AddSecretaryException;
-import com.winners.isetch.fmeapi.exceptionSecretary.DeleteAllException;
-import com.winners.isetch.fmeapi.exceptionSecretary.DeleteSecretaryException;
-import com.winners.isetch.fmeapi.exceptionSecretary.EditSecretaryException;
-import com.winners.isetch.fmeapi.exceptionSecretary.GetListSecretaryException;
-import com.winners.isetch.fmeapi.exceptionSecretary.GetSecretaryByIdException;
+import com.winners.isetch.fmeapi.exceptions.exceptionSecretary.AddSecretaryException;
+import com.winners.isetch.fmeapi.exceptions.exceptionSecretary.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptions.exceptionSecretary.DeleteSecretaryException;
+import com.winners.isetch.fmeapi.exceptions.exceptionSecretary.EditSecretaryException;
+import com.winners.isetch.fmeapi.exceptions.exceptionSecretary.GetListSecretaryException;
+import com.winners.isetch.fmeapi.exceptions.exceptionSecretary.GetSecretaryByIdException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

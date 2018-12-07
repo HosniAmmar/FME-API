@@ -2,12 +2,12 @@ package com.winners.isetch.fmeapi.Controller;
 
 import com.winners.isetch.fmeapi.Entity.Player;
 import com.winners.isetch.fmeapi.Service.PlayerService;
-import com.winners.isetch.fmeapi.exceptionPlayer.AddPlayerException;
-import com.winners.isetch.fmeapi.exceptionPlayer.DeleteAllException;
-import com.winners.isetch.fmeapi.exceptionPlayer.DeletePlayerException;
-import com.winners.isetch.fmeapi.exceptionPlayer.EditPlayerException;
-import com.winners.isetch.fmeapi.exceptionPlayer.GetListPlayerException;
-import com.winners.isetch.fmeapi.exceptionPlayer.GetPlayerByIdException;
+import com.winners.isetch.fmeapi.exceptions.exceptionPlayer.AddPlayerException;
+import com.winners.isetch.fmeapi.exceptions.exceptionPlayer.DeleteAllException;
+import com.winners.isetch.fmeapi.exceptions.exceptionPlayer.DeletePlayerException;
+import com.winners.isetch.fmeapi.exceptions.exceptionPlayer.EditPlayerException;
+import com.winners.isetch.fmeapi.exceptions.exceptionPlayer.GetListPlayerException;
+import com.winners.isetch.fmeapi.exceptions.exceptionPlayer.GetPlayerByIdException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +16,7 @@ import java.util.List;
 
 @RestController
 public class PlayerController {
+	//static final String crossOriginUrl = "http://localhost:8100";
 	static final String crossOriginUrl = "http://localhost:4200";
 
     @Autowired
@@ -23,7 +24,7 @@ public class PlayerController {
 
 
     @RequestMapping("/player")
-	@CrossOrigin(origins = crossOriginUrl)
+	@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:8100"})
 	public List<Player> getAllPlayers() {
 		List<Player> lp=null;
 		try {
@@ -34,9 +35,19 @@ public class PlayerController {
 		return lp;
 		
 	}
+	@RequestMapping("/player/team/{id}")
+	@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:8100"})
+	public List<Player> getPlayersByTeamId(@PathVariable int id) throws GetListPlayerException {
+		List<Player> lp=null;
+
+			lp=playerService.getPlayersByTeamId(id);
+
+		return lp;
+
+	}
 
     @RequestMapping("/player/{id}")
-	@CrossOrigin(origins = crossOriginUrl)
+	@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:8100"})
 	public Player getPlayerById(@PathVariable int id) {
 		Player p=null;	
 		try {
@@ -50,7 +61,7 @@ public class PlayerController {
 	}
 
     @RequestMapping(method = RequestMethod.POST,value="/player")
-	@CrossOrigin(origins = crossOriginUrl)
+	@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:8100"})
 	public void addPlayer(@RequestBody Player player) {
 		
 		try {
@@ -61,7 +72,7 @@ public class PlayerController {
 	}
 
     @RequestMapping(method = RequestMethod.PUT,value="/player/{id}")
-	@CrossOrigin(origins = crossOriginUrl)
+	@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:8100"})
 	public void editPlayer(@RequestBody Player player, @PathVariable int id) {
 		try {
 			playerService.editPlayer(player, id);
@@ -71,7 +82,7 @@ public class PlayerController {
 	}
 
     @RequestMapping(method = RequestMethod.DELETE,value="/player/{id}")
-	@CrossOrigin(origins = crossOriginUrl)
+	@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:8100"})
 	public void deletePlayer(@PathVariable int id) {
 		try {
 			playerService.deletePlayer(id);
@@ -80,7 +91,7 @@ public class PlayerController {
 		}
 	}
 	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteAllPlayers")
-	@CrossOrigin(origins = crossOriginUrl)
+	@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:8100"})
 	public void deleteAllPlayers() {
 		try {
 			playerService.deleteAllPlayers();
